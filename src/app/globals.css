@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6fbf1;
+  --foreground: #252820;
+
+  /* Figma Design Tokens */
+  --primary: #303b25;
+  --primary-hover: #242c1c;
+  --primary-foreground: #ffffff;
+
+  --dashboard: #34422a;
+  --brand-panel: #4b5940;
+  --brand-panel-text: #bfcfaf;
+  --brand-panel-dot: #d8e8c7;
+
+  --card-ticker: #f1f5eb;
+  --divider: #dfe4db;
+  --badge-bg: #e5eae0;
+  --badge-text: #181d17;
+  --dot-accent: #54624c;
+
+  --text-primary: #181d17;
+  --text-body: #454840;
+  --text-muted: #75786f;
+  --text-placeholder: rgba(117, 120, 111, 0.7);
+
+  --border: #dfe4db;
+  --input: #ffffff;
+  --ring: #303b25;
+
+  --error: #b12515;
+  --warning: #c0924c;
+  --success: #34422a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-dashboard: var(--dashboard);
+  --color-brand-panel: var(--brand-panel);
+  --color-brand-panel-text: var(--brand-panel-text);
+  --color-brand-panel-dot: var(--brand-panel-dot);
+
+  --color-card-ticker: var(--card-ticker);
+  --color-divider: var(--divider);
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-text: var(--badge-text);
+  --color-dot-accent: var(--dot-accent);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-body: var(--text-body);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-error: var(--error);
+  --color-warning: var(--warning);
+
+  --font-cairo: var(--font-cairo);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
