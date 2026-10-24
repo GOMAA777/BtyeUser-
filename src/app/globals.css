@@ -111,3 +111,15 @@ body {
   color: var(--foreground);
   font-family: var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
+
+@media (min-width: 1024px) {
+  html:has(main[data-node-id="1:10"]),
+  body:has(main[data-node-id="1:10"]),
+  html:has(main[data-node-id="1:17462"]),
+  body:has(main[data-node-id="1:17462"]) {
+    overflow: hidden;
+    height: 100vh;
+    max-height: 100vh;
+  }
+}
+
