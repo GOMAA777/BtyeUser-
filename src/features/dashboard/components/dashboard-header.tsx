@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ChevronLeft, Building2, Search, Bell } from "lucide-react";
 import { useSidebar } from "../context/sidebar-context";
+import { PropertySelectorDropdown } from "./property-selector-dropdown";
 
 export function DashboardHeader() {
   const { isCollapsed, toggleSidebar } = useSidebar();
@@ -12,8 +13,8 @@ export function DashboardHeader() {
       className="bg-white h-[64px] border-b border-[#E5EAE0] drop-shadow-[0px_1px_3px_rgba(0,0,0,0.03)] flex items-center justify-between px-[20px] lg:px-[28px] w-full shrink-0 z-20"
       data-name="Header"
     >
-      {/* 1. Right Side: Toggle Button + Divider + Property Pill */}
-      <div className="flex items-center gap-[4px] shrink-0">
+      {/* 1. Right Side: Toggle Button + Breadcrumb + Property Dropdown Menu */}
+      <div className="flex items-center gap-[6px] shrink-0">
         {/* Circular Sidebar Collapse/Expand Toggle Button */}
         <button
           type="button"
@@ -28,15 +29,21 @@ export function DashboardHeader() {
         </button>
 
         {/* Vertical Divider */}
-        <div className="h-[18px] w-px bg-[#DFE4DB] mx-[6px] shrink-0" />
+        <div className="h-[18px] w-px bg-[#DFE4DB] mx-[4px] shrink-0" />
 
-        {/* 'العقارات' Pill Badge */}
-        <div className="bg-[#EEF2E6] border border-[#DFE4DB]/60 flex items-center gap-[6px] px-[12px] py-[4px] rounded-[10px] shrink-0">
+        {/* Breadcrumb Item: 'العقارات' */}
+        <div className="bg-[#EEF2E6] border border-[#DFE4DB]/60 flex items-center gap-[6px] px-[10px] py-[4px] rounded-[10px] shrink-0">
           <Building2 size={14} className="text-[#34422A] shrink-0" />
           <span className="font-cairo font-semibold text-[12px] leading-[18px] text-[#181D17]">
             العقارات
           </span>
         </div>
+
+        {/* Breadcrumb Chevron Separator */}
+        <ChevronLeft size={13} className="text-[#75786F] shrink-0" />
+
+        {/* Property Selector Dropdown Menu */}
+        <PropertySelectorDropdown />
       </div>
 
       {/* 2. Center: Search Bar */}
