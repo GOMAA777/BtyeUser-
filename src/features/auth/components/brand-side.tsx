@@ -3,7 +3,7 @@ import Image from "next/image";
 export function BrandSide() {
   return (
     <div
-      className="flex bg-brand-panel flex-col items-start justify-between overflow-hidden p-6 sm:p-8 lg:px-10 lg:py-6 xl:px-12 xl:py-8 2xl:p-[64px] relative self-stretch w-full max-w-[563px] z-[1]"
+      className="flex bg-brand-panel flex-col items-start justify-between overflow-hidden p-6 sm:p-8 lg:px-10 lg:py-6 xl:px-12 xl:py-8 2xl:p-[64px] relative self-stretch w-full max-w-[760px] 2xl:max-w-[820px] mx-auto z-[1]"
       data-node-id="1:111"
     >
       {/* Background Architectural Grid / Lines */}

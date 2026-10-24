@@ -6,9 +6,11 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 import { loginSchema, type LoginInput } from "../schemas/login-schema";
 
 export function LoginForm() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,6 +32,7 @@ export function LoginForm() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 800));
       toast.success("تم تسجيل الدخول بنجاح!");
+      router.push("/dashboard");
     } catch {
       toast.error("حدث خطأ أثناء محاولة تسجيل الدخول");
     } finally {

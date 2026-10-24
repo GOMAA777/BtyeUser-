@@ -6,9 +6,11 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 import { registerSchema, type RegisterInput } from "../schemas/register-schema";
 
 export function RegisterForm() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -38,6 +40,7 @@ export function RegisterForm() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 800));
       toast.success("تم إنشاء حسابك بنجاح! جاري تحويلك...");
+      router.push("/dashboard");
     } catch {
       toast.error("حدث خطأ أثناء إنشاء الحساب");
     } finally {

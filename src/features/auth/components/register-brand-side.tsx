@@ -3,7 +3,7 @@ import Image from "next/image";
 export function RegisterBrandSide() {
   return (
     <div
-      className="flex bg-[#4b5940] flex-col items-start justify-between overflow-hidden p-[56px] relative self-stretch w-full max-w-[588px] z-[1]"
+      className="flex bg-[#4b5940] flex-col items-start justify-between overflow-hidden px-6 sm:px-8 lg:px-10 xl:px-14 2xl:px-16 py-8 sm:py-10 lg:py-8 xl:py-10 2xl:py-12 relative self-stretch w-full max-w-[800px] 2xl:max-w-[860px] mx-auto z-[1]"
       data-node-id="1:17587"
     >
       {/* Background Architectural Geometry & Lines */}
@@ -83,7 +83,7 @@ export function RegisterBrandSide() {
 
       {/* Middle Section: Hero & 4 Feature Tiles */}
       <div
-        className="flex flex-col gap-[24px] items-start relative z-10 w-full py-[32px]"
+        className="flex flex-col gap-5 xl:gap-6 2xl:gap-[24px] items-start relative z-10 w-full py-4 xl:py-6 2xl:py-[32px]"
         data-node-id="1:17613"
       >
         {/* Hero Headings */}
@@ -104,12 +104,12 @@ export function RegisterBrandSide() {
 
         {/* 4 Frosted Feature Cards Grid */}
         <div
-          className="grid grid-cols-2 gap-[14px] w-full pt-[8px]"
+          className="grid grid-cols-2 gap-4 xl:gap-5 w-full pt-[8px]"
           data-node-id="1:17619"
         >
           {/* Card 1: Real Estate & Units (Top-Right in RTL) */}
           <div
-            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-[12px] p-[16px] rounded-[12px] text-right"
+            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-3.5 xl:gap-4 p-4 xl:p-5 rounded-[12px] text-right"
             data-node-id="1:17620"
           >
             <div
@@ -128,29 +128,23 @@ export function RegisterBrandSide() {
             </div>
             <div className="flex flex-col gap-[6px] items-start text-right flex-1" data-node-id="1:17622">
               <h3
-                className="font-cairo font-semibold text-[18px] leading-[28px] text-white text-right"
+                className="font-cairo font-semibold text-[17px] xl:text-[18px] leading-[26px] xl:leading-[28px] text-white text-right"
                 data-node-id="1:17623"
               >
-                إدارة العقارات
-                <br />
-                والوحدات
+                إدارة العقارات والوحدات
               </h3>
               <p
-                className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right"
+                className="font-cairo font-bold text-[13px] leading-[21px] text-[#c1c8c0] text-right"
                 data-node-id="1:17628"
               >
-                متابعة الإشغال والجاهزية
-                <br />
-                اللحظية وعقود التأجير بكل
-                <br />
-                دقة.
+                متابعة الإشغال والجاهزية اللحظية وعقود التأجير بكل دقة.
               </p>
             </div>
           </div>
 
           {/* Card 2: Booking & Airbnb Sync (Top-Left in RTL) */}
           <div
-            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-[12px] p-[16px] rounded-[12px] text-right"
+            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-3.5 xl:gap-4 p-4 xl:p-5 rounded-[12px] text-right"
             data-node-id="1:17629"
           >
             <div
@@ -169,29 +163,23 @@ export function RegisterBrandSide() {
             </div>
             <div className="flex flex-col gap-[6px] items-start text-right flex-1" data-node-id="1:17631">
               <h3
-                className="font-cairo font-semibold text-[18px] leading-[28px] text-white text-right"
+                className="font-cairo font-semibold text-[17px] xl:text-[18px] leading-[26px] xl:leading-[28px] text-white text-right"
                 data-node-id="1:17632"
               >
-                ربط Booking و
-                <br />
-                Airbnb
+                ربط Booking و Airbnb
               </h3>
               <p
-                className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right"
+                className="font-cairo font-bold text-[13px] leading-[21px] text-[#c1c8c0] text-right"
                 data-node-id="1:17637"
               >
-                مزامنة فورية للتقاويم
-                <br />
-                والأسعار ومنع التعارض
-                <br />
-                المزدوج تلقائياً.
+                مزامنة فورية للتقاويم والأسعار ومنع التعارض المزدوج تلقائياً.
               </p>
             </div>
           </div>
 
           {/* Card 3: Operations & Maintenance (Bottom-Right in RTL) */}
           <div
-            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-[12px] p-[16px] rounded-[12px] text-right"
+            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-3.5 xl:gap-4 p-4 xl:p-5 rounded-[12px] text-right"
             data-node-id="1:17638"
           >
             <div
@@ -210,29 +198,23 @@ export function RegisterBrandSide() {
             </div>
             <div className="flex flex-col gap-[6px] items-start text-right flex-1" data-node-id="1:17640">
               <h3
-                className="font-cairo font-semibold text-[18px] leading-[28px] text-white text-right"
+                className="font-cairo font-semibold text-[17px] xl:text-[18px] leading-[26px] xl:leading-[28px] text-white text-right"
                 data-node-id="1:17641"
               >
-                التشغيل والصيانة
-                <br />
-                تلقائيًا
+                التشغيل والصيانة تلقائيًا
               </h3>
               <p
-                className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right"
+                className="font-cairo font-bold text-[13px] leading-[21px] text-[#c1c8c0] text-right"
                 data-node-id="1:17646"
               >
-                توليد مهام التنظيف وتعيين
-                <br />
-                الفنيين اللحظي فور مغادرة
-                <br />
-                الضيوف.
+                توليد مهام التنظيف وتعيين الفنيين اللحظي فور مغادرة الضيوف.
               </p>
             </div>
           </div>
 
           {/* Card 4: WhatsApp Integration (Bottom-Left in RTL) */}
           <div
-            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-[12px] p-[16px] rounded-[12px] text-right"
+            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-3.5 xl:gap-4 p-4 xl:p-5 rounded-[12px] text-right"
             data-node-id="1:17647"
           >
             <div
@@ -251,22 +233,16 @@ export function RegisterBrandSide() {
             </div>
             <div className="flex flex-col gap-[6px] items-start text-right flex-1" data-node-id="1:17649">
               <h3
-                className="font-cairo font-semibold text-[18px] leading-[28px] text-white text-right"
+                className="font-cairo font-semibold text-[17px] xl:text-[18px] leading-[26px] xl:leading-[28px] text-white text-right"
                 data-node-id="1:17650"
               >
-                تواصل ذكي عبر
-                <br />
-                واتساب
+                تواصل ذكي عبر واتساب
               </h3>
               <p
-                className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right"
+                className="font-cairo font-bold text-[13px] leading-[21px] text-[#c1c8c0] text-right"
                 data-node-id="1:17655"
               >
-                إرسال تلقائي لأكواد الدخول
-                <br />
-                الذكي وتأكيدات الحجز وفواتير
-                <br />
-                الضريبة.
+                إرسال تلقائي لأكواد الدخول الذكي وتأكيدات الحجز وفواتير الضريبة.
               </p>
             </div>
           </div>
