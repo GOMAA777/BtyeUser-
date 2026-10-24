@@ -217,7 +217,7 @@ export function LoginForm() {
           ليس لديك حساب منشأة عقارية؟
         </span>
         <Link
-          href="#register"
+          href="/register"
           className="font-cairo font-semibold text-[18px] leading-[28px] text-[#34422a] hover:underline"
           data-node-id="1:75"
         >
