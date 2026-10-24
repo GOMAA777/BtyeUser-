@@ -2,13 +2,18 @@
 
 :root {
   --background: #f6fbf1;
-  --foreground: #252820;
+  --foreground: #252a24;
 
-  /* Figma Design Tokens */
-  --primary: #303b25;
-  --primary-hover: #242c1c;
+  /* Official Design System Tokens (From User Style Guide) */
+  --primary: #4b5940;
+  --secondary: #c9b99a;
+  --tertiary: #303a2c;
+  --neutral: #252a24;
+
   --primary-foreground: #ffffff;
+  --secondary-foreground: #181d17;
 
+  /* Supporting Palette Tokens */
   --dashboard: #34422a;
   --brand-panel: #4b5940;
   --brand-panel-text: #bfcfaf;
@@ -23,24 +28,26 @@
   --text-primary: #181d17;
   --text-body: #454840;
   --text-muted: #75786f;
-  --text-placeholder: rgba(117, 120, 111, 0.7);
+  --text-placeholder: #c5c8bd;
 
   --border: #dfe4db;
   --input: #ffffff;
-  --ring: #303b25;
+  --ring: #4b5940;
 
-  --error: #b12515;
-  --warning: #c0924c;
-  --success: #34422a;
+  --destructive: #ba1a1a;
+  --error: #ba1a1a;
+  --warning: #c9b99a;
+  --success: #4b5940;
 }
 
 @theme {
   --color-background: #f6fbf1;
-  --color-foreground: #252820;
+  --color-foreground: #252a24;
 
-  --color-primary: #303b25;
-  --color-primary-hover: #242c1c;
-  --color-primary-foreground: #ffffff;
+  --color-primary: #4b5940;
+  --color-secondary: #c9b99a;
+  --color-tertiary: #303a2c;
+  --color-neutral: #252a24;
 
   --color-dashboard: #34422a;
   --color-brand-panel: #4b5940;
@@ -56,20 +63,53 @@
   --color-text-primary: #181d17;
   --color-text-body: #454840;
   --color-text-muted: #75786f;
-  --color-text-placeholder: rgba(117, 120, 111, 0.7);
+  --color-text-placeholder: #c5c8bd;
 
   --color-border: #dfe4db;
   --color-input: #ffffff;
-  --color-ring: #303b25;
+  --color-ring: #4b5940;
 
-  --color-error: #b12515;
-  --color-warning: #c0924c;
-  --color-success: #34422a;
+  --color-destructive: #ba1a1a;
+  --color-error: #ba1a1a;
+  --color-warning: #c9b99a;
+  --color-success: #4b5940;
 
   --font-cairo: var(--font-cairo);
 }
 
 /* Explicit fallback utilities ensuring design tokens compile reliably across Turbopack/Dev */
+.bg-primary {
+  background-color: #4b5940 !important;
+}
+
+.bg-secondary {
+  background-color: #c9b99a !important;
+}
+
+.bg-tertiary {
+  background-color: #303a2c !important;
+}
+
+.bg-neutral {
+  background-color: #252a24 !important;
+}
+
+.text-primary {
+  color: #4b5940 !important;
+}
+
+.text-secondary {
+  color: #c9b99a !important;
+}
+
+.text-tertiary {
+  color: #303a2c !important;
+}
+
+.text-neutral {
+  color: #252a24 !important;
+}
+
 .bg-brand-panel {
   background-color: #4b5940 !important;
 }
