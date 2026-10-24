@@ -10,11 +10,11 @@ export function DashboardHeader() {
 
   return (
     <header
-      className="bg-white h-[64px] border-b border-[#E5EAE0] drop-shadow-[0px_1px_3px_rgba(0,0,0,0.03)] flex items-center justify-between px-[20px] lg:px-[28px] w-full shrink-0 z-20"
+      className="bg-white h-[64px] border-b border-[#E5EAE0] drop-shadow-[0px_1px_3px_rgba(0,0,0,0.03)] flex items-center justify-between px-[20px] lg:px-[28px] w-full shrink-0 z-20 gap-[16px]"
       data-name="Header"
     >
-      {/* 1. Right Side: Toggle Button + Breadcrumb + Property Dropdown Menu */}
-      <div className="flex items-center gap-[6px] shrink-0">
+      {/* 1. Right Side: Toggle Button + Breadcrumbs Path + Property Dropdown Menu */}
+      <div className="flex items-center gap-[6px] flex-1 min-w-0 overflow-x-auto no-scrollbar py-[4px]">
         {/* Circular Sidebar Collapse/Expand Toggle Button */}
         <button
           type="button"
@@ -43,24 +43,26 @@ export function DashboardHeader() {
         <ChevronLeft size={13} className="text-[#75786F] shrink-0" />
 
         {/* Property Selector Dropdown Menu */}
-        <PropertySelectorDropdown />
-      </div>
-
-      {/* 2. Center: Search Bar */}
-      <div className="flex-1 max-w-[420px] mx-[16px] lg:mx-[28px]">
-        <div className="bg-[#EAEFE6] border border-transparent hover:border-[#DFE4DB] focus-within:border-[#34422A] h-[36px] rounded-[14px] flex items-center px-[12px] w-full transition-all">
-          <Search size={15} className="text-[#75786F] shrink-0 ml-[8px]" />
-          <input
-            type="text"
-            dir="rtl"
-            placeholder="ابحث عن مالك، عقار، وحدة أو حجز..."
-            className="bg-transparent outline-none w-full font-cairo text-[12.5px] text-[#181D17] placeholder:text-[#75786F]"
-          />
+        <div className="shrink-0">
+          <PropertySelectorDropdown />
         </div>
       </div>
 
-      {/* 3. Left Side: Notification Bell + Divider + User Profile */}
-      <div className="flex items-center gap-[6px] shrink-0">
+      {/* 2. Left Side: Search Bar + Notification Bell + Divider + User Profile */}
+      <div className="flex items-center gap-[12px] lg:gap-[16px] shrink-0">
+        {/* Search Bar (Moved to left before notifications) */}
+        <div className="w-[240px] sm:w-[280px] lg:w-[320px] shrink-0">
+          <div className="bg-[#EAEFE6] border border-transparent hover:border-[#DFE4DB] focus-within:border-[#34422A] h-[36px] rounded-[14px] flex items-center px-[12px] w-full transition-all">
+            <Search size={15} className="text-[#75786F] shrink-0 ml-[8px]" />
+            <input
+              type="text"
+              dir="rtl"
+              placeholder="ابحث عن مالك، عقار، وحدة أو حجز..."
+              className="bg-transparent outline-none w-full font-cairo text-[12px] text-[#181D17] placeholder:text-[#75786F]"
+            />
+          </div>
+        </div>
+
         {/* Notification Bell */}
         <button
           type="button"
@@ -72,7 +74,7 @@ export function DashboardHeader() {
         </button>
 
         {/* Vertical Divider */}
-        <div className="h-[22px] w-px bg-[#DFE4DB] mx-[6px] shrink-0" />
+        <div className="h-[22px] w-px bg-[#DFE4DB] shrink-0" />
 
         {/* User Profile Card */}
         <div className="flex items-center gap-[10px] shrink-0">
