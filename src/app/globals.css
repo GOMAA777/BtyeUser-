@@ -34,37 +34,76 @@
   --success: #34422a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
+  --color-background: #f6fbf1;
+  --color-foreground: #252820;
 
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: #303b25;
+  --color-primary-hover: #242c1c;
+  --color-primary-foreground: #ffffff;
 
-  --color-dashboard: var(--dashboard);
-  --color-brand-panel: var(--brand-panel);
-  --color-brand-panel-text: var(--brand-panel-text);
-  --color-brand-panel-dot: var(--brand-panel-dot);
+  --color-dashboard: #34422a;
+  --color-brand-panel: #4b5940;
+  --color-brand-panel-text: #bfcfaf;
+  --color-brand-panel-dot: #d8e8c7;
 
-  --color-card-ticker: var(--card-ticker);
-  --color-divider: var(--divider);
-  --color-badge-bg: var(--badge-bg);
-  --color-badge-text: var(--badge-text);
-  --color-dot-accent: var(--dot-accent);
+  --color-card-ticker: #f1f5eb;
+  --color-divider: #dfe4db;
+  --color-badge-bg: #e5eae0;
+  --color-badge-text: #181d17;
+  --color-dot-accent: #54624c;
 
-  --color-text-primary: var(--text-primary);
-  --color-text-body: var(--text-body);
-  --color-text-muted: var(--text-muted);
+  --color-text-primary: #181d17;
+  --color-text-body: #454840;
+  --color-text-muted: #75786f;
+  --color-text-placeholder: rgba(117, 120, 111, 0.7);
 
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+  --color-border: #dfe4db;
+  --color-input: #ffffff;
+  --color-ring: #303b25;
 
-  --color-error: var(--error);
-  --color-warning: var(--warning);
+  --color-error: #b12515;
+  --color-warning: #c0924c;
+  --color-success: #34422a;
 
   --font-cairo: var(--font-cairo);
+}
+
+/* Explicit fallback utilities ensuring design tokens compile reliably across Turbopack/Dev */
+.bg-brand-panel {
+  background-color: #4b5940 !important;
+}
+
+.text-brand-panel-text {
+  color: #bfcfaf !important;
+}
+
+.bg-brand-panel-dot {
+  background-color: #d8e8c7 !important;
+}
+
+.bg-dashboard {
+  background-color: #34422a !important;
+}
+
+.bg-card-ticker {
+  background-color: #f1f5eb !important;
+}
+
+.border-divider {
+  border-color: #dfe4db !important;
+}
+
+.text-text-primary {
+  color: #181d17 !important;
+}
+
+.text-text-body {
+  color: #454840 !important;
+}
+
+.text-text-muted {
+  color: #75786f !important;
 }
 
 body {

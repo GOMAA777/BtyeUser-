@@ -7,7 +7,7 @@ export function BrandSide() {
       data-node-id="1:111"
     >
       {/* Background Architectural Grid / Lines */}
-      <div className="absolute inset-0 pointer-events-none opacity-40">
+      <div className="absolute inset-0 pointer-events-none">
         <Image
           src="/assets/auth/bg_architecture_lines.svg"
           alt=""
@@ -25,7 +25,7 @@ export function BrandSide() {
 
       {/* Faint Ambient Glow Bottom-Left */}
       <div
-        className="absolute bg-[#546349]/30 blur-[32px] rounded-full size-[384px] -bottom-[128px] -left-[128px] pointer-events-none"
+        className="absolute bg-[#546349]/20 blur-[32px] rounded-full size-[384px] -bottom-[128px] -left-[128px] pointer-events-none"
         data-node-id="1:124"
       />
 
@@ -116,7 +116,7 @@ export function BrandSide() {
         >
           {/* Feature 1 */}
           <div
-            className="backdrop-blur-[2px] bg-white/[0.06] border border-white/10 flex items-start gap-[16px] p-[16px] rounded-[12px] w-full"
+            className="backdrop-blur-[2px] bg-white/[0.05] flex items-start gap-[16px] p-[16px] rounded-[12px] w-full"
             data-node-id="1:143"
           >
             <div
@@ -151,7 +151,7 @@ export function BrandSide() {
 
           {/* Feature 2 */}
           <div
-            className="backdrop-blur-[2px] bg-white/[0.06] border border-white/10 flex items-start gap-[16px] p-[16px] rounded-[12px] w-full"
+            className="backdrop-blur-[2px] bg-white/[0.05] flex items-start gap-[16px] p-[16px] rounded-[12px] w-full"
             data-node-id="1:152"
           >
             <div
@@ -186,7 +186,7 @@ export function BrandSide() {
 
           {/* Feature 3 */}
           <div
-            className="backdrop-blur-[2px] bg-white/[0.06] border border-white/10 flex items-start gap-[16px] p-[16px] rounded-[12px] w-full"
+            className="backdrop-blur-[2px] bg-white/[0.05] flex items-start gap-[16px] p-[16px] rounded-[12px] w-full"
             data-node-id="1:161"
           >
             <div
