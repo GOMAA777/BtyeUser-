@@ -18,9 +18,11 @@ import {
   UserCircle,
   ShieldCheck,
   LogOut,
+  Users,
   type LucideIcon,
 } from "lucide-react";
 import { useSidebar } from "../context/sidebar-context";
+import { showToast } from "@/lib/toast";
 
 interface NavItem {
   label: string;
@@ -83,6 +85,11 @@ const mainNavItems: NavItem[] = [
 ];
 
 const settingsNavItems: NavItem[] = [
+  {
+    label: "فريق العمل",
+    href: "#team",
+    icon: Users,
+  },
   {
     label: "الإعدادات",
     href: "#settings",
@@ -159,6 +166,12 @@ export function DashboardSidebar() {
                 key={item.label}
                 href={item.href}
                 title={isCollapsed ? item.label : undefined}
+                onClick={(e) => {
+                  if (item.href.startsWith("#")) {
+                    e.preventDefault();
+                    showToast.underDevelopment(item.label);
+                  }
+                }}
                 className={`flex items-center transition-all w-full font-cairo ${
                   isCollapsed ? "justify-center p-[10px]" : "gap-[12px] px-[16px] py-[8px]"
                 } ${
@@ -204,6 +217,12 @@ export function DashboardSidebar() {
                 key={item.label}
                 href={item.href}
                 title={isCollapsed ? item.label : undefined}
+                onClick={(e) => {
+                  if (item.href.startsWith("#")) {
+                    e.preventDefault();
+                    showToast.underDevelopment(item.label);
+                  }
+                }}
                 className={`flex items-center text-[#E0E7DC] hover:text-white hover:bg-white/[0.05] transition-all w-full font-cairo font-semibold ${
                   isCollapsed ? "justify-center p-[10px] rounded-[12px]" : "gap-[12px] px-[16px] py-[8px] rounded-[12px]"
                 }`}

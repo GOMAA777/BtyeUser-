@@ -188,3 +188,154 @@ body {
   background: #a8aca0;
 }
 
+/* ==========================================================================
+   Sonner Toaster Global Customizations (Image 1 & Image 2 Fidelity)
+   ========================================================================== */
+[data-sonner-toaster] {
+  font-family: var(--font-cairo), Cairo, sans-serif !important;
+  z-index: 999999 !important;
+}
+
+[data-sonner-toaster][data-x-position='left'] {
+  left: 24px !important;
+  right: auto !important;
+}
+
+[data-sonner-toaster][data-y-position='bottom'] {
+  bottom: 24px !important;
+  top: auto !important;
+}
+
+[data-sonner-toast] {
+  font-family: var(--font-cairo), Cairo, sans-serif !important;
+  direction: rtl !important;
+}
+
+/* 1. Success Toast (Single-line Pill, Image 1) */
+[data-sonner-toast][data-type='success']:not(:has([data-description])) {
+  background: #EDFAF0 !important;
+  border: 1px solid #A4E7B8 !important;
+  border-radius: 16px !important;
+  box-shadow: 0px 4px 20px rgba(14, 98, 56, 0.08) !important;
+  padding: 12px 18px !important;
+  width: fit-content !important;
+  min-width: 260px !important;
+  max-width: 420px !important;
+  gap: 10px !important;
+}
+
+[data-sonner-toast][data-type='success']:not(:has([data-description])) [data-title] {
+  color: #0E6238 !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  line-height: 20px !important;
+  white-space: nowrap !important;
+}
+
+[data-sonner-toast][data-type='success']:not(:has([data-description])) [data-close-button] {
+  display: none !important;
+}
+
+/* 2. Rich Card / Under Development Toast (Image 2) */
+[data-sonner-toast]:has([data-description]),
+[data-sonner-toast][data-type='info'] {
+  background: #FFFFFF !important;
+  border: 1px solid #DFE4DB !important;
+  border-radius: 16px !important;
+  box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.08) !important;
+  padding: 18px 20px !important;
+  width: 410px !important;
+  max-width: calc(100vw - 32px) !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 14px !important;
+  position: relative !important;
+}
+
+[data-sonner-toast]:has([data-description]) [data-icon],
+[data-sonner-toast][data-type='info'] [data-icon] {
+  margin: 0 !important;
+  margin-top: 2px !important;
+  flex-shrink: 0 !important;
+}
+
+[data-sonner-toast]:has([data-description]) [data-content],
+[data-sonner-toast][data-type='info'] [data-content] {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  text-align: right !important;
+  flex: 1 !important;
+}
+
+[data-sonner-toast]:has([data-description]) [data-title],
+[data-sonner-toast][data-type='info'] [data-title] {
+  color: #181D17 !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
+}
+
+[data-sonner-toast]:has([data-description]) [data-description],
+[data-sonner-toast][data-type='info'] [data-description] {
+  color: #75786F !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 19px !important;
+  margin: 0 !important;
+}
+
+/* Floating Corner Close Button (Top-Left corner for RTL as in Image 2) */
+[data-sonner-toast] [data-close-button] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  transform: translate(-35%, -35%) !important;
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 9999px !important;
+  background: #FFFFFF !important;
+  border: 1px solid #DFE4DB !important;
+  color: #75786F !important;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  z-index: 10 !important;
+}
+
+[data-sonner-toast] [data-close-button]:hover {
+  background: #F7FAF4 !important;
+  color: #181D17 !important;
+  border-color: #C5C8BD !important;
+  transform: translate(-35%, -35%) scale(1.08) !important;
+}
+
+/* 3. Error Toast */
+[data-sonner-toast][data-type='error']:not(:has([data-description])) {
+  background: #FFF0F0 !important;
+  border: 1px solid #FFCDD2 !important;
+  border-radius: 16px !important;
+  box-shadow: 0px 4px 20px rgba(186, 26, 26, 0.08) !important;
+  padding: 12px 18px !important;
+  width: fit-content !important;
+  min-width: 260px !important;
+  max-width: 420px !important;
+  gap: 10px !important;
+}
+
+[data-sonner-toast][data-type='error']:not(:has([data-description])) [data-title] {
+  color: #BA1A1A !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  line-height: 20px !important;
+}
+
+[data-sonner-toast][data-type='error']:not(:has([data-description])) [data-close-button] {
+  display: none !important;
+}
+
