@@ -3,7 +3,7 @@ import Image from "next/image";
 export function BrandSide() {
   return (
     <div
-      className="flex bg-brand-panel flex-col items-start justify-between overflow-hidden p-[64px] relative self-stretch w-full max-w-[563px] z-[1]"
+      className="flex bg-brand-panel flex-col items-start justify-between overflow-hidden p-6 sm:p-8 lg:px-10 lg:py-6 xl:px-12 xl:py-8 2xl:p-[64px] relative self-stretch w-full max-w-[563px] z-[1]"
       data-node-id="1:111"
     >
       {/* Background Architectural Grid / Lines */}
@@ -69,7 +69,7 @@ export function BrandSide() {
 
       {/* Center Narrative & Pillars */}
       <div
-        className="flex flex-col gap-[24px] items-start relative z-10 w-full py-[48px]"
+        className="flex flex-col gap-3 xl:gap-4 2xl:gap-[24px] items-start relative z-10 w-full my-auto py-2 xl:py-4 2xl:py-[48px]"
         data-node-id="1:132"
       >
         {/* Pill Badge */}
@@ -111,12 +111,12 @@ export function BrandSide() {
 
         {/* 3 Feature Pillars / Trust Badges */}
         <div
-          className="flex flex-col gap-[16px] w-full pt-[8px]"
+          className="flex flex-col gap-2.5 xl:gap-3 2xl:gap-[16px] w-full pt-1 xl:pt-2 2xl:pt-[8px]"
           data-node-id="1:142"
         >
           {/* Feature 1 */}
           <div
-            className="backdrop-blur-[2px] bg-white/[0.05] flex items-start gap-[16px] p-[16px] rounded-[12px] w-full"
+            className="backdrop-blur-[2px] bg-white/[0.05] flex items-start gap-3 xl:gap-4 2xl:gap-[16px] p-3 xl:p-3.5 2xl:p-[16px] rounded-[12px] w-full"
             data-node-id="1:143"
           >
             <div
@@ -151,7 +151,7 @@ export function BrandSide() {
 
           {/* Feature 2 */}
           <div
-            className="backdrop-blur-[2px] bg-white/[0.05] flex items-start gap-[16px] p-[16px] rounded-[12px] w-full"
+            className="backdrop-blur-[2px] bg-white/[0.05] flex items-start gap-3 xl:gap-4 2xl:gap-[16px] p-3 xl:p-3.5 2xl:p-[16px] rounded-[12px] w-full"
             data-node-id="1:152"
           >
             <div
@@ -186,7 +186,7 @@ export function BrandSide() {
 
           {/* Feature 3 */}
           <div
-            className="backdrop-blur-[2px] bg-white/[0.05] flex items-start gap-[16px] p-[16px] rounded-[12px] w-full"
+            className="backdrop-blur-[2px] bg-white/[0.05] flex items-start gap-3 xl:gap-4 2xl:gap-[16px] p-3 xl:p-3.5 2xl:p-[16px] rounded-[12px] w-full"
             data-node-id="1:161"
           >
             <div
@@ -223,7 +223,7 @@ export function BrandSide() {
 
       {/* Brand Footer Endorsements */}
       <div
-        className="flex items-center justify-between relative z-10 w-full pt-[24px]"
+        className="flex items-center justify-between relative z-10 w-full pt-3 xl:pt-4 2xl:pt-[24px]"
         data-node-id="1:170"
       >
         {/* REGA Endorsement */}

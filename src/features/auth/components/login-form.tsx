@@ -40,7 +40,7 @@ export function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-[24px] items-start pt-[8px] w-full max-w-[576px]"
+      className="flex flex-col gap-3.5 xl:gap-5 2xl:gap-[24px] items-start pt-1 xl:pt-2 2xl:pt-[8px] w-full max-w-[576px]"
       data-node-id="1:35"
     >
       {/* Field 1: Phone / Email */}

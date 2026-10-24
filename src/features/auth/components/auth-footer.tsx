@@ -3,7 +3,7 @@ import Link from "next/link";
 export function AuthFooter() {
   return (
     <div
-      className="flex flex-col sm:flex-row items-center justify-between w-full max-w-[576px] pt-[24px] gap-4"
+      className="flex flex-col sm:flex-row items-center justify-between w-full max-w-[576px] pt-2 xl:pt-4 2xl:pt-[24px] gap-4"
       data-node-id="1:97"
     >
       {/* Copyright */}

@@ -11,7 +11,7 @@ export function TrialAssuranceBadge() {
         data-node-id="1:17582"
       >
         <span
-          className="font-cairo font-medium text-[11px] leading-[16px] text-[#54624c] text-center"
+          className="font-cairo font-bold text-[11px] leading-[16px] text-[#54624c] text-center"
           data-node-id="1:17584"
         >
           تسجيل مجاني تجريبي لمدة 14 يوماً بدون الحاجة لبطاقة ائتمانية

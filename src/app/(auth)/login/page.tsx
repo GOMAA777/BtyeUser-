@@ -7,7 +7,7 @@ import { BrandSide } from "@/features/auth/components/brand-side";
 export default function LoginPage() {
   return (
     <main
-      className="flex min-h-screen w-full items-stretch"
+      className="flex min-h-screen lg:h-screen lg:max-h-screen lg:overflow-hidden w-full items-stretch"
       data-node-id="1:10"
     >
       {/* 
@@ -24,7 +24,7 @@ export default function LoginPage() {
       {/* AUTHENTICATION FORM SIDE (Physical Left in RTL: 56% width, cream background) */}
       <div className="flex-1 lg:w-[56%] bg-[#f6fbf1] flex justify-center self-stretch z-[2]">
         <section
-          className="flex flex-col items-center justify-between p-6 sm:p-10 lg:p-[80px] w-full max-w-[720px] self-stretch"
+          className="flex flex-col items-center justify-between p-6 sm:p-10 lg:px-12 lg:py-6 xl:px-16 xl:py-8 2xl:p-[80px] w-full max-w-[720px] self-stretch"
           data-node-id="1:11"
         >
           {/* Top Micro Navigation */}
@@ -32,7 +32,7 @@ export default function LoginPage() {
 
           {/* Centered Form Area */}
           <div
-            className="flex flex-col items-center justify-center w-full max-w-[576px] my-auto py-8 gap-[32px]"
+            className="flex flex-col items-center justify-center w-full max-w-[576px] my-auto py-2 xl:py-4 2xl:py-8 gap-4 xl:gap-6 2xl:gap-[32px]"
             data-node-id="1:29"
           >
             {/* Welcome Headings */}

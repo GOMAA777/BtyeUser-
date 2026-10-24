@@ -345,13 +345,30 @@ export function RegisterForm() {
 
       {/* 6. Terms & Condition Checkbox */}
       <div className="flex gap-[12px] items-start py-[4px] w-full" data-node-id="1:17562">
-        <input
-          id="acceptTerms"
-          type="checkbox"
-          {...register("acceptTerms")}
-          className="size-[20px] rounded-[3px] border-[#767676] text-[#4b5940] focus:ring-[#303b25] accent-[#4b5940] shrink-0 mt-[2px] cursor-pointer"
-          data-node-id="1:17571"
-        />
+        <div className="relative size-[20px] shrink-0 mt-[2px]" data-node-id="1:17570">
+          <input
+            id="acceptTerms"
+            type="checkbox"
+            {...register("acceptTerms")}
+            className="peer sr-only"
+          />
+          <label
+            htmlFor="acceptTerms"
+            className="size-[20px] rounded-[3px] border border-[#767676] bg-white peer-checked:bg-[#4b5940] peer-checked:border-[#4b5940] flex items-center justify-center transition-all cursor-pointer shadow-sm [&>svg]:opacity-0 peer-checked:[&>svg]:opacity-100"
+          >
+            <svg
+              className="size-[12px] text-white transition-opacity"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </label>
+        </div>
         <label
           htmlFor="acceptTerms"
           className="font-cairo font-normal text-[13px] leading-[21px] text-[#454840] text-right cursor-pointer select-none"
