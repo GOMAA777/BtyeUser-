@@ -109,142 +109,166 @@ export function RegisterBrandSide() {
         >
           {/* Card 1: Real Estate & Units (Top-Right in RTL) */}
           <div
-            className="bg-[rgba(80,87,80,0.3)] flex flex-col gap-[6px] p-[16px] rounded-[12px] text-right"
+            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-[12px] p-[16px] rounded-[12px] text-right"
             data-node-id="1:17620"
           >
-            <div className="flex items-center justify-between w-full" data-node-id="1:17621">
-              <div
-                className="bg-[rgba(223,228,219,0.2)] flex items-center justify-center rounded-[8px] h-[32px] w-[28.8px] shrink-0"
-                data-node-id="1:17624"
-              >
-                <div className="relative size-[15px]" data-node-id="1:17625">
-                  <Image
-                    src="/assets/register/icon_card_buildings.svg"
-                    alt=""
-                    width={15}
-                    height={15}
-                    className="size-full object-contain"
-                  />
-                </div>
+            <div
+              className="bg-[rgba(223,228,219,0.2)] flex items-center justify-center rounded-[8px] h-[32px] w-[28.8px] shrink-0"
+              data-node-id="1:17624"
+            >
+              <div className="relative size-[15px]" data-node-id="1:17625">
+                <Image
+                  src="/assets/register/icon_card_buildings.svg"
+                  alt=""
+                  width={15}
+                  height={15}
+                  className="size-full object-contain"
+                />
               </div>
+            </div>
+            <div className="flex flex-col gap-[6px] items-start text-right flex-1" data-node-id="1:17622">
               <h3
                 className="font-cairo font-semibold text-[18px] leading-[28px] text-white text-right"
                 data-node-id="1:17623"
               >
-                إدارة العقارات والوحدات
+                إدارة العقارات
+                <br />
+                والوحدات
               </h3>
+              <p
+                className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right"
+                data-node-id="1:17628"
+              >
+                متابعة الإشغال والجاهزية
+                <br />
+                اللحظية وعقود التأجير بكل
+                <br />
+                دقة.
+              </p>
             </div>
-            <p
-              className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right pr-[44px]"
-              data-node-id="1:17628"
-            >
-              متابعة الإشغال والجاهزية اللحظية وعقود التأجير بكل دقة.
-            </p>
           </div>
 
           {/* Card 2: Booking & Airbnb Sync (Top-Left in RTL) */}
           <div
-            className="bg-[rgba(80,87,80,0.3)] flex flex-col gap-[6px] p-[16px] rounded-[12px] text-right"
+            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-[12px] p-[16px] rounded-[12px] text-right"
             data-node-id="1:17629"
           >
-            <div className="flex items-center justify-between w-full" data-node-id="1:17630">
-              <div
-                className="bg-[rgba(223,228,219,0.2)] flex items-center justify-center rounded-[8px] h-[32px] w-[31.4px] shrink-0"
-                data-node-id="1:17633"
-              >
-                <div className="relative size-[16px]" data-node-id="1:17634">
-                  <Image
-                    src="/assets/register/icon_card_sync.svg"
-                    alt=""
-                    width={16}
-                    height={16}
-                    className="size-full object-contain"
-                  />
-                </div>
+            <div
+              className="bg-[rgba(223,228,219,0.2)] flex items-center justify-center rounded-[8px] h-[32px] w-[31.4px] shrink-0"
+              data-node-id="1:17633"
+            >
+              <div className="relative w-[16.667px] h-[15px]" data-node-id="1:17634">
+                <Image
+                  src="/assets/register/icon_card_sync.svg"
+                  alt=""
+                  width={16.667}
+                  height={15}
+                  className="size-full object-contain"
+                />
               </div>
+            </div>
+            <div className="flex flex-col gap-[6px] items-start text-right flex-1" data-node-id="1:17631">
               <h3
                 className="font-cairo font-semibold text-[18px] leading-[28px] text-white text-right"
                 data-node-id="1:17632"
               >
-                ربط Booking و Airbnb
+                ربط Booking و
+                <br />
+                Airbnb
               </h3>
+              <p
+                className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right"
+                data-node-id="1:17637"
+              >
+                مزامنة فورية للتقاويم
+                <br />
+                والأسعار ومنع التعارض
+                <br />
+                المزدوج تلقائياً.
+              </p>
             </div>
-            <p
-              className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right pr-[44px]"
-              data-node-id="1:17637"
-            >
-              مزامنة فورية للتقاويم والأسعار ومنع التعارض المزدوج تلقائياً.
-            </p>
           </div>
 
           {/* Card 3: Operations & Maintenance (Bottom-Right in RTL) */}
           <div
-            className="bg-[rgba(80,87,80,0.3)] flex flex-col gap-[6px] p-[16px] rounded-[12px] text-right"
+            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-[12px] p-[16px] rounded-[12px] text-right"
             data-node-id="1:17638"
           >
-            <div className="flex items-center justify-between w-full" data-node-id="1:17639">
-              <div
-                className="bg-[rgba(223,228,219,0.2)] flex items-center justify-center rounded-[8px] h-[32px] w-[28.6px] shrink-0"
-                data-node-id="1:17642"
-              >
-                <div className="relative size-[16px]" data-node-id="1:17643">
-                  <Image
-                    src="/assets/register/icon_card_tools.svg"
-                    alt=""
-                    width={16}
-                    height={16}
-                    className="size-full object-contain"
-                  />
-                </div>
+            <div
+              className="bg-[rgba(223,228,219,0.2)] flex items-center justify-center rounded-[8px] h-[32px] w-[28.6px] shrink-0"
+              data-node-id="1:17642"
+            >
+              <div className="relative w-[18.25px] h-[15px]" data-node-id="1:17643">
+                <Image
+                  src="/assets/register/icon_card_tools.svg"
+                  alt=""
+                  width={18.25}
+                  height={15}
+                  className="size-full object-contain"
+                />
               </div>
+            </div>
+            <div className="flex flex-col gap-[6px] items-start text-right flex-1" data-node-id="1:17640">
               <h3
                 className="font-cairo font-semibold text-[18px] leading-[28px] text-white text-right"
                 data-node-id="1:17641"
               >
-                التشغيل والصيانة تلقائيًا
+                التشغيل والصيانة
+                <br />
+                تلقائيًا
               </h3>
+              <p
+                className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right"
+                data-node-id="1:17646"
+              >
+                توليد مهام التنظيف وتعيين
+                <br />
+                الفنيين اللحظي فور مغادرة
+                <br />
+                الضيوف.
+              </p>
             </div>
-            <p
-              className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right pr-[44px]"
-              data-node-id="1:17646"
-            >
-              توليد مهام التنظيف وتعيين الفنيين اللحظي فور مغادرة الضيوف.
-            </p>
           </div>
 
           {/* Card 4: WhatsApp Integration (Bottom-Left in RTL) */}
           <div
-            className="bg-[rgba(80,87,80,0.3)] flex flex-col gap-[6px] p-[16px] rounded-[12px] text-right"
+            className="bg-[rgba(80,87,80,0.3)] flex items-start gap-[12px] p-[16px] rounded-[12px] text-right"
             data-node-id="1:17647"
           >
-            <div className="flex items-center justify-between w-full" data-node-id="1:17648">
-              <div
-                className="bg-[rgba(223,228,219,0.2)] flex items-center justify-center rounded-[8px] h-[32px] w-[29px] shrink-0"
-                data-node-id="1:17651"
-              >
-                <div className="relative size-[16px]" data-node-id="1:17652">
-                  <Image
-                    src="/assets/register/icon_card_whatsapp.svg"
-                    alt=""
-                    width={16}
-                    height={16}
-                    className="size-full object-contain"
-                  />
-                </div>
+            <div
+              className="bg-[rgba(223,228,219,0.2)] flex items-center justify-center rounded-[8px] h-[32px] w-[29px] shrink-0"
+              data-node-id="1:17651"
+            >
+              <div className="relative size-[16.667px]" data-node-id="1:17652">
+                <Image
+                  src="/assets/register/icon_card_whatsapp.svg"
+                  alt=""
+                  width={16.667}
+                  height={16.667}
+                  className="size-full object-contain"
+                />
               </div>
+            </div>
+            <div className="flex flex-col gap-[6px] items-start text-right flex-1" data-node-id="1:17649">
               <h3
                 className="font-cairo font-semibold text-[18px] leading-[28px] text-white text-right"
                 data-node-id="1:17650"
               >
-                تواصل ذكي عبر واتساب
+                تواصل ذكي عبر
+                <br />
+                واتساب
               </h3>
+              <p
+                className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right"
+                data-node-id="1:17655"
+              >
+                إرسال تلقائي لأكواد الدخول
+                <br />
+                الذكي وتأكيدات الحجز وفواتير
+                <br />
+                الضريبة.
+              </p>
             </div>
-            <p
-              className="font-cairo font-bold text-[13px] leading-[20px] text-[#c1c8c0] text-right pr-[44px]"
-              data-node-id="1:17655"
-            >
-              إرسال تلقائي لأكواد الدخول الذكي وتأكيدات الحجز وفواتير الضريبة.
-            </p>
           </div>
         </div>
 
