@@ -40,7 +40,7 @@ export function RegisterForm() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 800));
       toast.success("تم إنشاء حسابك بنجاح! جاري تحويلك...");
-      router.push("/dashboard");
+      router.push("/onboarding");
     } catch {
       toast.error("حدث خطأ أثناء إنشاء الحساب");
     } finally {
