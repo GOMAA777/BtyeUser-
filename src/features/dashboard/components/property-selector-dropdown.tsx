@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Building2, Home, Check, Search, PlusCircle } from "lucide-react";
-import { toast } from "sonner";
+import { toast, showToast } from "@/lib/toast";
 
 export interface PropertyOption {
   id: string;
@@ -65,17 +65,17 @@ export function PropertySelectorDropdown() {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="bg-[#F1F5EB] hover:bg-[#E8EDE1] border border-[#DFE4DB]/80 flex items-center gap-[8px] px-[14px] py-[6px] rounded-[12px] transition-all cursor-pointer shadow-sm select-none"
+        className="bg-[#F1F5EB] hover:bg-[#E8EDE1] border border-[#DFE4DB]/80 flex items-center justify-between gap-[8px] px-[14px] py-[6px] rounded-[12px] transition-all cursor-pointer shadow-sm select-none"
       >
+        <span className="font-cairo font-semibold text-[12px] leading-[18px] text-[#181D17]">
+          {selectedProperty.name} - {selectedProperty.location}
+        </span>
         <ChevronDown
           size={14}
           className={`text-[#454840] transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
-        <span className="font-cairo font-semibold text-[12px] leading-[18px] text-[#181D17]">
-          {selectedProperty.name} - {selectedProperty.location}
-        </span>
       </button>
 
       {/* Floating Dropdown Menu Card */}
@@ -195,7 +195,7 @@ export function PropertySelectorDropdown() {
             type="button"
             onClick={() => {
               setIsOpen(false);
-              toast.info("نموذج إضافة عقار جديد قيد التجهيز");
+              showToast.underDevelopment("إضافة عقار جديد");
             }}
             className="w-full flex items-center justify-center gap-[6px] py-[4px] font-cairo font-bold text-[13px] leading-[18px] text-[#181D17] hover:text-[#34422A] transition-colors cursor-pointer"
           >
