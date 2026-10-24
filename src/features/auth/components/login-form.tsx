@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -14,6 +14,10 @@ export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    router.prefetch("/onboarding");
+  }, [router]);
+
   const {
     register,
     handleSubmit,
@@ -21,8 +25,8 @@ export function LoginForm() {
   } = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      identifier: "",
-      password: "",
+      identifier: "0501234567",
+      password: "Password123!",
       rememberMe: true,
     },
   });
@@ -30,9 +34,9 @@ export function LoginForm() {
   const onSubmit = async (data: LoginInput) => {
     setIsLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800));
-      toast.success("تم تسجيل الدخول بنجاح!");
-      router.push("/dashboard");
+      await new Promise((resolve) => setTimeout(resolve, 350));
+      toast.success("تم تسجيل الدخول بنجاح! جاري تحويلك...");
+      router.push("/onboarding");
     } catch {
       toast.error("حدث خطأ أثناء محاولة تسجيل الدخول");
     } finally {
