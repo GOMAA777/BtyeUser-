@@ -1,103 +1,91 @@
 "use client";
 
 import Image from "next/image";
+import { ChevronLeft, Building2, Search, Bell } from "lucide-react";
+import { useSidebar } from "../context/sidebar-context";
 
 export function DashboardHeader() {
+  const { isCollapsed, toggleSidebar } = useSidebar();
+
   return (
     <header
-      className="bg-white h-[72px] drop-shadow-[0px_1px_4px_rgba(0,0,0,0.04)] flex items-center justify-between px-[32px] w-full shrink-0 z-20"
-      data-node-id="1:572"
+      className="bg-white h-[64px] border-b border-[#E5EAE0] drop-shadow-[0px_1px_3px_rgba(0,0,0,0.03)] flex items-center justify-between px-[20px] lg:px-[28px] w-full shrink-0 z-20"
       data-name="Header"
     >
-      {/* 1. Property Selector (Right side in RTL) */}
-      <div className="flex items-center" data-node-id="1:593">
+      {/* 1. Right Side: Toggle Button + Divider + Property Pill */}
+      <div className="flex items-center gap-[4px] shrink-0">
+        {/* Circular Sidebar Collapse/Expand Toggle Button */}
         <button
           type="button"
-          className="bg-[#f1f5eb] flex items-center gap-[6px] px-[16px] py-[6px] rounded-[12px] hover:bg-[#e8ede1] transition-colors"
-          data-node-id="1:594"
+          onClick={toggleSidebar}
+          title={isCollapsed ? "توسيع القائمة الجانبية" : "طي القائمة الجانبية"}
+          className="size-[28px] rounded-full bg-white border border-[#DFE4DB] shadow-sm flex items-center justify-center text-[#454840] hover:bg-neutral-50 hover:text-black transition-all shrink-0 cursor-pointer"
         >
-          <div className="relative shrink-0 size-[10px] flex items-center justify-center" data-node-id="1:595">
-            <Image
-              src="/assets/dashboard/1812ba5f9cf264abe76bab2218fa26946d18c382.svg"
-              alt="Chevron"
-              width={9}
-              height={6}
-              className="object-contain"
-            />
-          </div>
-          <span className="font-cairo font-semibold text-[12px] leading-[18px] text-[#181d17]" data-node-id="1:598">
-            عمارة النخيل - الرياض
-          </span>
+          <ChevronLeft
+            size={16}
+            className={`transition-transform duration-200 ${isCollapsed ? "rotate-180" : ""}`}
+          />
         </button>
+
+        {/* Vertical Divider */}
+        <div className="h-[18px] w-px bg-[#DFE4DB] mx-[6px] shrink-0" />
+
+        {/* 'العقارات' Pill Badge */}
+        <div className="bg-[#EEF2E6] border border-[#DFE4DB]/60 flex items-center gap-[6px] px-[12px] py-[4px] rounded-[10px] shrink-0">
+          <Building2 size={14} className="text-[#34422A] shrink-0" />
+          <span className="font-cairo font-semibold text-[12px] leading-[18px] text-[#181D17]">
+            العقارات
+          </span>
+        </div>
       </div>
 
-      {/* 2. Search Bar (Center) */}
-      <div className="flex-1 max-w-[520px] px-[24px]" data-node-id="1:586">
-        <div className="relative w-full flex items-center" data-node-id="1:587">
-          <div className="absolute right-[14px] size-[15px] flex items-center justify-center pointer-events-none" data-node-id="1:591">
-            <Image
-              src="/assets/dashboard/195de96be2d38f81237b67a2bf764aaabfda4fea.svg"
-              alt="Search"
-              width={15}
-              height={15}
-              className="object-contain"
-            />
-          </div>
+      {/* 2. Center: Search Bar */}
+      <div className="flex-1 max-w-[420px] mx-[16px] lg:mx-[28px]">
+        <div className="bg-[#EAEFE6] border border-transparent hover:border-[#DFE4DB] focus-within:border-[#34422A] h-[36px] rounded-[14px] flex items-center px-[12px] w-full transition-all">
+          <Search size={15} className="text-[#75786F] shrink-0 ml-[8px]" />
           <input
             type="text"
             dir="rtl"
-            placeholder="ابحث عن وحدة، مستأجر، عقد..."
-            className="bg-[#f1f5eb] h-[40px] w-full rounded-[12px] pr-[38px] pl-[16px] py-[8px] font-cairo font-normal text-[13px] text-[#181d17] placeholder:text-[#75786f] outline-none focus:ring-1 focus:ring-[#34422a] transition-all"
-            data-node-id="1:588"
+            placeholder="ابحث عن مالك، عقار، وحدة أو حجز..."
+            className="bg-transparent outline-none w-full font-cairo text-[12.5px] text-[#181D17] placeholder:text-[#75786F]"
           />
         </div>
       </div>
 
-      {/* 3. Notification & Profile (Left side in RTL) */}
-      <div className="flex items-center gap-[20px]" data-node-id="1:573">
+      {/* 3. Left Side: Notification Bell + Divider + User Profile */}
+      <div className="flex items-center gap-[6px] shrink-0">
         {/* Notification Bell */}
         <button
           type="button"
           aria-label="التنبيهات"
-          className="relative flex items-center justify-center p-[6px] rounded-full hover:bg-neutral-100 transition-colors"
-          data-node-id="1:581"
+          className="relative p-[6px] rounded-full hover:bg-neutral-100 transition-colors text-[#454840] shrink-0"
         >
-          <div className="relative size-[18px]" data-node-id="1:582">
-            <Image
-              src="/assets/dashboard/a1e751134fff1b1badb7c27be8aa45703253498b.svg"
-              alt="Notifications"
-              width={16}
-              height={20}
-              className="object-contain"
-            />
-          </div>
-          <span
-            className="absolute top-[5px] left-[5px] size-[8px] bg-[#ba1a1a] rounded-full ring-2 ring-white"
-            data-node-id="1:584"
-          />
+          <Bell size={18} />
+          <span className="absolute top-[5px] left-[5px] size-[7px] bg-[#BA1A1A] rounded-full ring-2 ring-white" />
         </button>
 
-        {/* Profile Card */}
-        <div
-          className="flex items-center gap-[10px] pr-[16px] pl-[4px] border-r border-[rgba(197,200,189,0.4)]"
-          data-node-id="1:574"
-        >
-          <div className="relative size-[32px] rounded-full overflow-hidden shrink-0" data-node-id="1:575">
+        {/* Vertical Divider */}
+        <div className="h-[22px] w-px bg-[#DFE4DB] mx-[6px] shrink-0" />
+
+        {/* User Profile Card */}
+        <div className="flex items-center gap-[10px] shrink-0">
+          <div className="flex flex-col items-end">
+            <span className="font-cairo font-bold text-[13px] leading-[18px] text-[#181D17]">
+              محمد أحمد
+            </span>
+            <span className="font-cairo font-medium text-[11px] leading-[14px] text-[#75786F]">
+              مدير المنصة
+            </span>
+          </div>
+
+          <div className="relative size-[32px] rounded-full overflow-hidden shrink-0 border border-neutral-200/60 shadow-sm">
             <Image
               src="/assets/dashboard/de01e5fde3da237802f4f5f9f19a4aa8998f2967.png"
               alt="محمد أحمد"
               width={32}
               height={32}
-              className="object-cover"
+              className="object-cover size-full"
             />
-          </div>
-          <div className="flex flex-col items-start" data-node-id="1:576">
-            <span className="font-cairo font-bold text-[12px] leading-[18px] text-[#181d17]" data-node-id="1:578">
-              محمد أحمد
-            </span>
-            <span className="font-cairo font-medium text-[11px] leading-[16px] text-[#454840]" data-node-id="1:580">
-              مالك العقار
-            </span>
           </div>
         </div>
       </div>

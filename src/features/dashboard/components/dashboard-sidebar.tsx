@@ -20,6 +20,7 @@ import {
   LogOut,
   type LucideIcon,
 } from "lucide-react";
+import { useSidebar } from "../context/sidebar-context";
 
 interface NavItem {
   label: string;
@@ -96,17 +97,24 @@ const settingsNavItems: NavItem[] = [
 
 export function DashboardSidebar() {
   const pathname = usePathname();
+  const { isCollapsed } = useSidebar();
 
   return (
     <aside
-      className="bg-[#303A2C] flex flex-col justify-between w-[260px] shrink-0 h-screen sticky top-0 z-30 select-none overflow-hidden no-scrollbar px-[14px] py-[16px]"
+      className={`bg-[#303A2C] flex flex-col justify-between shrink-0 h-screen sticky top-0 z-30 select-none overflow-hidden no-scrollbar py-[16px] transition-all duration-300 ease-in-out ${
+        isCollapsed ? "w-[76px] px-[8px]" : "w-[260px] px-[14px]"
+      }`}
       data-node-id="1:599"
       data-name="Aside"
     >
       {/* Top Group: Brand + Main Nav */}
       <div className="flex flex-col items-start w-full">
         {/* Brand Header */}
-        <div className="flex gap-[12px] items-center px-[8px] pt-[2px] pb-[16px] w-full">
+        <div
+          className={`flex items-center px-[8px] pt-[2px] pb-[16px] w-full ${
+            isCollapsed ? "justify-center gap-0" : "gap-[12px]"
+          }`}
+        >
           {/* Circular Emblem Badge with Gold Accent */}
           <div className="relative shrink-0 size-[42px] rounded-full bg-[#252E22] border border-[rgba(201,185,154,0.35)] flex items-center justify-center overflow-hidden shadow-sm">
             <Image
@@ -118,22 +126,27 @@ export function DashboardSidebar() {
               className="object-contain"
             />
           </div>
-          <div className="flex flex-col items-start">
-            <h1 className="font-cairo font-bold text-[20px] leading-[26px] text-white tracking-[-0.3px]">
-              ابراج
-            </h1>
-            <p className="font-cairo font-medium text-[11px] leading-[14px] text-[#A3B39C]">
-              منظومة إدارة وتشغيل العقارات
-            </p>
-          </div>
+
+          {!isCollapsed && (
+            <div className="flex flex-col items-start overflow-hidden">
+              <h1 className="font-cairo font-bold text-[20px] leading-[26px] text-white tracking-[-0.3px] whitespace-nowrap">
+                ابراج
+              </h1>
+              <p className="font-cairo font-medium text-[11px] leading-[14px] text-[#A3B39C] whitespace-nowrap">
+                منظومة إدارة وتشغيل العقارات
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Section Label: Main Navigation */}
-        <div className="px-[12px] pt-[6px] pb-[4px] w-full">
-          <span className="font-cairo font-medium text-[12px] leading-[16px] text-[#7D8B72]">
-            القائمة الرئيسية
-          </span>
-        </div>
+        {!isCollapsed && (
+          <div className="px-[12px] pt-[6px] pb-[4px] w-full">
+            <span className="font-cairo font-medium text-[12px] leading-[16px] text-[#7D8B72]">
+              القائمة الرئيسية
+            </span>
+          </div>
+        )}
 
         {/* Main Nav Items List */}
         <nav className="flex flex-col gap-[3px] pt-[2px] w-full">
@@ -145,7 +158,10 @@ export function DashboardSidebar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`flex items-center gap-[12px] px-[16px] py-[8px] transition-all w-full font-cairo ${
+                title={isCollapsed ? item.label : undefined}
+                className={`flex items-center transition-all w-full font-cairo ${
+                  isCollapsed ? "justify-center p-[10px]" : "gap-[12px] px-[16px] py-[8px]"
+                } ${
                   isActive
                     ? "bg-[#4B5940] text-white font-bold rounded-full shadow-sm"
                     : "text-[#E0E7DC] hover:text-white hover:bg-white/[0.05] rounded-[12px] font-semibold"
@@ -158,7 +174,11 @@ export function DashboardSidebar() {
                     className={isActive ? "text-white" : "text-[#C5D0C0]"}
                   />
                 </div>
-                <span className="text-[13.5px] leading-[20px]">{item.label}</span>
+                {!isCollapsed && (
+                  <span className="text-[13.5px] leading-[20px] whitespace-nowrap">
+                    {item.label}
+                  </span>
+                )}
               </Link>
             );
           })}
@@ -168,11 +188,13 @@ export function DashboardSidebar() {
       {/* Bottom Group: Settings + User Pill Card */}
       <div className="flex flex-col pt-[8px] w-full">
         {/* Section Label: System & Settings */}
-        <div className="px-[12px] pb-[4px] w-full">
-          <span className="font-cairo font-medium text-[12px] leading-[16px] text-[#7D8B72]">
-            النظام والإعدادات
-          </span>
-        </div>
+        {!isCollapsed && (
+          <div className="px-[12px] pb-[4px] w-full">
+            <span className="font-cairo font-medium text-[12px] leading-[16px] text-[#7D8B72]">
+              النظام والإعدادات
+            </span>
+          </div>
+        )}
 
         <nav className="flex flex-col gap-[3px] w-full">
           {settingsNavItems.map((item) => {
@@ -181,12 +203,19 @@ export function DashboardSidebar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="flex items-center gap-[12px] px-[16px] py-[8px] rounded-[12px] text-[#E0E7DC] hover:text-white hover:bg-white/[0.05] transition-all w-full font-cairo font-semibold"
+                title={isCollapsed ? item.label : undefined}
+                className={`flex items-center text-[#E0E7DC] hover:text-white hover:bg-white/[0.05] transition-all w-full font-cairo font-semibold ${
+                  isCollapsed ? "justify-center p-[10px] rounded-[12px]" : "gap-[12px] px-[16px] py-[8px] rounded-[12px]"
+                }`}
               >
                 <div className="relative shrink-0 size-[20px] flex items-center justify-center">
                   <IconComponent size={19} strokeWidth={1.8} className="text-[#C5D0C0]" />
                 </div>
-                <span className="text-[13.5px] leading-[20px]">{item.label}</span>
+                {!isCollapsed && (
+                  <span className="text-[13.5px] leading-[20px] whitespace-nowrap">
+                    {item.label}
+                  </span>
+                )}
               </Link>
             );
           })}
@@ -194,34 +223,43 @@ export function DashboardSidebar() {
 
         {/* User Pill Card */}
         <div className="pt-[10px] w-full">
-          <div className="bg-[#3C4638] flex items-center justify-between px-[12px] py-[8px] rounded-[22px] w-full shadow-sm">
+          <div
+            className={`bg-[#3C4638] flex items-center rounded-[22px] shadow-sm transition-all ${
+              isCollapsed ? "justify-center p-[8px]" : "justify-between px-[12px] py-[8px] w-full"
+            }`}
+          >
             {/* User Details with Avatar Circle */}
             <div className="flex items-center gap-[10px]">
               {/* Beige Avatar Circle with User Initial */}
               <div className="size-[34px] rounded-full bg-[#C9B99A] text-[#303A2C] font-cairo font-bold text-[14px] flex items-center justify-center shrink-0 shadow-inner">
                 م
               </div>
-              <div className="flex flex-col items-start">
-                <span className="font-cairo font-bold text-[13px] leading-[18px] text-white">
-                  محمد احمد
-                </span>
-                <div className="flex items-center gap-[4px]">
-                  <span className="font-cairo font-medium text-[11px] leading-[14px] text-[#A3B39C]">
-                    مدير النظام
+
+              {!isCollapsed && (
+                <div className="flex flex-col items-start overflow-hidden">
+                  <span className="font-cairo font-bold text-[13px] leading-[18px] text-white whitespace-nowrap">
+                    محمد احمد
                   </span>
-                  <ShieldCheck size={12} className="text-[#A3B39C]" />
+                  <div className="flex items-center gap-[4px] whitespace-nowrap">
+                    <span className="font-cairo font-medium text-[11px] leading-[14px] text-[#A3B39C]">
+                      مدير النظام
+                    </span>
+                    <ShieldCheck size={12} className="text-[#A3B39C]" />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Logout Action Button */}
-            <Link
-              href="/login"
-              title="تسجيل الخروج"
-              className="p-[6px] rounded-full text-[#A3B39C] hover:text-white hover:bg-white/[0.08] transition-colors shrink-0"
-            >
-              <LogOut size={17} className="transform rotate-180" />
-            </Link>
+            {!isCollapsed && (
+              <Link
+                href="/login"
+                title="تسجيل الخروج"
+                className="p-[6px] rounded-full text-[#A3B39C] hover:text-white hover:bg-white/[0.08] transition-colors shrink-0"
+              >
+                <LogOut size={17} className="transform rotate-180" />
+              </Link>
+            )}
           </div>
         </div>
       </div>
