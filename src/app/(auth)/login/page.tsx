@@ -7,10 +7,19 @@ import { BrandSide } from "@/features/auth/components/brand-side";
 export default function LoginPage() {
   return (
     <main
-      className="flex min-h-screen w-full bg-background items-stretch justify-center"
+      className="flex min-h-screen w-full bg-[#f6fbf1] items-stretch justify-center"
       data-node-id="1:10"
     >
-      {/* AUTHENTICATION FORM SIDE (Left in RTL: 50-55% width) */}
+      {/* 
+        In dir="rtl":
+        1st flex child renders on PHYSICAL RIGHT = BrandSide (x=716.8 to 1280 in Figma)
+        2nd flex child renders on PHYSICAL LEFT  = Authentication Form (x=0 to 716.8 in Figma)
+      */}
+
+      {/* BRAND / VISUAL IDENTITY SIDE (Physical Right in RTL: 45-50% width) */}
+      <BrandSide />
+
+      {/* AUTHENTICATION FORM SIDE (Physical Left in RTL: 50-55% width) */}
       <section
         className="flex-1 flex flex-col items-center justify-between p-6 sm:p-10 lg:p-[80px] w-full max-w-[720px] self-stretch z-[2]"
         data-node-id="1:11"
@@ -26,13 +35,13 @@ export default function LoginPage() {
           {/* Welcome Headings */}
           <div className="flex flex-col gap-[12px] items-start w-full text-right" data-node-id="1:30">
             <h2
-              className="w-full font-cairo font-bold text-[28px] sm:text-[30px] leading-[42px] tracking-[-0.75px] text-text-primary"
+              className="w-full font-cairo font-bold text-[28px] sm:text-[30px] leading-[42px] tracking-[-0.75px] text-[#181d17]"
               data-node-id="1:32"
             >
               مرحبًا بعودتك
             </h2>
             <p
-              className="w-full font-cairo font-normal text-[15px] sm:text-[16px] leading-[26px] text-text-body"
+              className="w-full font-cairo font-normal text-[15px] sm:text-[16px] leading-[26px] text-[#454840]"
               data-node-id="1:34"
             >
               سجّل الدخول لإدارة عقاراتك ووحداتك ومتابعة مؤشرات الأداء الحية بسهولة.
@@ -49,9 +58,6 @@ export default function LoginPage() {
         {/* Left Panel Footer */}
         <AuthFooter />
       </section>
-
-      {/* BRAND / VISUAL IDENTITY SIDE (Physical Right in RTL: 45-50% width) */}
-      <BrandSide />
     </main>
   );
 }

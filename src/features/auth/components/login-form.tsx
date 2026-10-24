@@ -28,10 +28,8 @@ export function LoginForm() {
   const onSubmit = async (data: LoginInput) => {
     setIsLoading(true);
     try {
-      // Demonstration authentication delay
       await new Promise((resolve) => setTimeout(resolve, 800));
       toast.success("تم تسجيل الدخول بنجاح!");
-      // Redirect or navigate in future flow
     } catch {
       toast.error("حدث خطأ أثناء محاولة تسجيل الدخول");
     } finally {
@@ -49,7 +47,7 @@ export function LoginForm() {
       <div className="flex flex-col gap-[8px] items-start w-full" data-node-id="1:36">
         <label
           htmlFor="identifier"
-          className="w-full text-right font-cairo font-semibold text-[14px] leading-[20px] text-text-primary"
+          className="w-full text-right font-cairo font-semibold text-[14px] leading-[20px] text-[#252820]"
           data-node-id="1:38"
         >
           رقم الجوال أو البريد الإلكتروني
@@ -61,14 +59,14 @@ export function LoginForm() {
             dir="rtl"
             placeholder="مثال: 0501234567 أو name@company.sa"
             {...register("identifier")}
-            className="w-full h-[48px] bg-white rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] border border-border/40 pr-[48px] pl-[16px] py-[11px] text-right font-cairo text-[14px] text-text-primary placeholder:text-text-placeholder focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full h-[48px] bg-white rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] border border-[#dfe4db]/60 pr-[48px] pl-[16px] py-[11px] text-right font-cairo text-[14px] text-[#252820] placeholder:text-[rgba(117,120,111,0.7)] focus:outline-none focus:ring-2 focus:ring-[#303b25] focus:border-transparent transition-all"
             data-node-id="1:40"
           />
           <div
             className="absolute top-0 bottom-0 right-[16px] flex items-center pointer-events-none"
             data-node-id="1:43"
           >
-            <div className="relative size-[16px]" data-node-id="1:44">
+            <div className="relative size-[15.72px]" data-node-id="1:44">
               <Image
                 src="/assets/auth/icon_at.svg"
                 alt=""
@@ -80,7 +78,7 @@ export function LoginForm() {
           </div>
         </div>
         {errors.identifier && (
-          <p className="text-[12px] text-error font-cairo font-medium">
+          <p className="text-[12px] text-[#b12515] font-cairo font-medium">
             {errors.identifier.message}
           </p>
         )}
@@ -90,7 +88,7 @@ export function LoginForm() {
       <div className="flex flex-col gap-[8px] items-start w-full" data-node-id="1:46">
         <label
           htmlFor="password"
-          className="w-full text-right font-cairo font-semibold text-[14px] leading-[20px] text-text-primary"
+          className="w-full text-right font-cairo font-semibold text-[14px] leading-[20px] text-[#252820]"
           data-node-id="1:48"
         >
           كلمة المرور
@@ -102,7 +100,7 @@ export function LoginForm() {
             dir="rtl"
             placeholder="••••••••••••"
             {...register("password")}
-            className="w-full h-[48px] bg-white rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] border border-border/40 pr-[48px] pl-[48px] py-[11px] text-right font-cairo text-[14px] text-text-primary placeholder:text-text-placeholder tracking-widest focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="w-full h-[48px] bg-white rounded-[12px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] border border-[#dfe4db]/60 pr-[48px] pl-[48px] py-[11px] text-right font-cairo text-[14px] text-[#252820] placeholder:text-[rgba(117,120,111,0.7)] tracking-widest focus:outline-none focus:ring-2 focus:ring-[#303b25] focus:border-transparent transition-all"
             data-node-id="1:50"
           />
           {/* Lock icon on the right */}
@@ -110,7 +108,7 @@ export function LoginForm() {
             className="absolute top-0 bottom-0 right-[16px] flex items-center pointer-events-none"
             data-node-id="1:53"
           >
-            <div className="relative w-[13px] h-[16px]" data-node-id="1:54">
+            <div className="relative w-[12.72px] h-[16.35px]" data-node-id="1:54">
               <Image
                 src="/assets/auth/icon_lock.svg"
                 alt=""
@@ -124,11 +122,11 @@ export function LoginForm() {
           <button
             type="button"
             onClick={() => setShowPassword((prev) => !prev)}
-            className="absolute top-0 bottom-0 left-[16px] flex items-center justify-center text-text-muted hover:text-text-primary transition-colors focus:outline-none"
+            className="absolute top-0 bottom-0 left-[16px] flex items-center justify-center text-[#75786f] hover:text-[#252820] transition-colors focus:outline-none cursor-pointer"
             title={showPassword ? "إخفاء كلمة المرور" : "عرض كلمة المرور"}
             data-node-id="1:56"
           >
-            <div className="relative w-[17px] h-[12px]" data-node-id="1:57">
+            <div className="relative w-[17.16px] h-[11.91px]" data-node-id="1:57">
               <Image
                 src="/assets/auth/icon_eye.svg"
                 alt=""
@@ -140,52 +138,56 @@ export function LoginForm() {
           </button>
         </div>
         {errors.password && (
-          <p className="text-[12px] text-error font-cairo font-medium">
+          <p className="text-[12px] text-[#b12515] font-cairo font-medium">
             {errors.password.message}
           </p>
         )}
       </div>
 
-      {/* Auxiliary Options: Remember & Forgot */}
+      {/* Auxiliary Options: Remember & Forgot (x=0 to 556.8) */}
       <div
         className="flex items-center justify-between w-full pt-[4px] pb-[8px]"
         data-node-id="1:59"
       >
-        <Link
-          href="#forgot-password"
-          className="font-cairo font-semibold text-[14px] leading-[20px] text-primary hover:underline transition-all"
-          data-node-id="1:61"
-        >
-          نسيت كلمة المرور؟
-        </Link>
+        {/* Right side in RTL (x=396.73): Remember me checkbox */}
         <label
           className="flex items-center gap-[12px] cursor-pointer select-none"
           data-node-id="1:62"
         >
-          <span className="font-cairo font-normal text-[14px] leading-[22px] text-text-primary">
-            تذكرني على هذا الجهاز
-          </span>
           <input
             type="checkbox"
             {...register("rememberMe")}
-            className="size-[20px] rounded-[4px] border-border text-primary focus:ring-primary accent-primary cursor-pointer"
+            className="size-[20px] rounded-[2.5px] border-[#dfe4db] text-[#4b5940] focus:ring-[#303b25] accent-[#4b5940] cursor-pointer"
             data-node-id="1:65"
           />
+          <span className="font-cairo font-normal text-[14px] leading-[22px] text-[#181d17]">
+            تذكرني على هذا الجهاز
+          </span>
         </label>
+
+        {/* Left side in RTL (x=0): Forgot password link */}
+        <Link
+          href="#forgot-password"
+          className="font-cairo font-semibold text-[14px] leading-[20px] text-[#303b25] hover:underline transition-all"
+          data-node-id="1:61"
+        >
+          نسيت كلمة المرور؟
+        </Link>
       </div>
 
       {/* Primary CTA Button */}
       <button
         type="submit"
         disabled={isLoading}
-        className="relative w-full h-[48px] bg-dashboard hover:bg-primary-hover active:scale-[0.99] text-white font-cairo font-semibold text-[18px] leading-[28px] rounded-[12px] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] flex items-center justify-center gap-[12px] transition-all disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+        className="relative w-full h-[48px] bg-[#34422a] hover:bg-[#2c3723] active:scale-[0.99] text-white font-cairo font-semibold text-[18px] leading-[28px] rounded-[12px] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] flex items-center justify-center gap-[12px] transition-all disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
         data-node-id="1:66"
       >
         {isLoading ? (
           <span className="inline-block size-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
         ) : (
           <>
-            <div className="relative size-[13px]" data-node-id="1:68">
+            <span data-node-id="1:71">تسجيل الدخول</span>
+            <div className="relative size-[12.72px]" data-node-id="1:68">
               <Image
                 src="/assets/auth/icon_arrow_left.svg"
                 alt=""
@@ -194,30 +196,29 @@ export function LoginForm() {
                 className="size-full object-contain"
               />
             </div>
-            <span data-node-id="1:71">تسجيل الدخول</span>
           </>
         )}
       </button>
 
       {/* Modern Divider */}
       <div className="flex items-center justify-center w-full my-[4px]" data-node-id="1:72">
-        <div className="h-px bg-divider w-full" data-node-id="1:73" />
+        <div className="h-px bg-[#dfe4db] w-full" data-node-id="1:73" />
       </div>
 
       {/* New Registration CTA */}
       <div
-        className="flex items-center justify-center gap-[6px] w-full text-center"
+        className="flex items-center justify-center gap-[8px] w-full text-center"
         data-node-id="1:74"
       >
         <span
-          className="font-cairo font-normal text-[14px] leading-[22px] text-text-body"
+          className="font-cairo font-normal text-[14px] leading-[22px] text-[#454840]"
           data-node-id="1:76"
         >
           ليس لديك حساب منشأة عقارية؟
         </span>
         <Link
           href="#register"
-          className="font-cairo font-semibold text-[18px] leading-[28px] text-dashboard hover:underline"
+          className="font-cairo font-semibold text-[18px] leading-[28px] text-[#34422a] hover:underline"
           data-node-id="1:75"
         >
           إنشاء حساب جديد
