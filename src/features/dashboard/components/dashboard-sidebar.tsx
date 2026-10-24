@@ -108,10 +108,10 @@ export function DashboardSidebar() {
 
   return (
     <aside
-      className={`bg-[#303A2C] flex flex-col justify-between shrink-0 h-screen sticky top-0 z-30 select-none overflow-hidden no-scrollbar py-[16px] transition-all duration-300 ease-in-out ${
+      className={`bg-[#34422A] flex flex-col justify-between shrink-0 h-screen sticky top-0 z-30 select-none overflow-hidden no-scrollbar py-[16px] transition-all duration-300 ease-in-out ${
         isCollapsed ? "w-[76px] px-[8px]" : "w-[260px] px-[14px]"
       }`}
-      data-node-id="1:599"
+      data-node-id="1:21910"
       data-name="Aside"
     >
       {/* Top Group: Brand + Main Nav */}
@@ -158,7 +158,9 @@ export function DashboardSidebar() {
         {/* Main Nav Items List */}
         <nav className="flex flex-col gap-[3px] pt-[2px] w-full">
           {mainNavItems.map((item) => {
-            const isActive = item.href === "/dashboard" || pathname === item.href;
+            const isActive =
+              (item.href === "/dashboard" && pathname === "/dashboard") ||
+              (item.href.includes("properties") && pathname.includes("properties"));
             const IconComponent = item.icon;
 
             return (
@@ -173,22 +175,22 @@ export function DashboardSidebar() {
                   }
                 }}
                 className={`flex items-center transition-all w-full font-cairo ${
-                  isCollapsed ? "justify-center p-[10px]" : "gap-[12px] px-[16px] py-[8px]"
+                  isCollapsed ? "justify-center p-[10px] rounded-[12px]" : "gap-[12px] px-[16px] py-[8px] rounded-[12px]"
                 } ${
                   isActive
-                    ? "bg-[#4B5940] text-white font-bold rounded-full shadow-sm"
-                    : "text-[#E0E7DC] hover:text-white hover:bg-white/[0.05] rounded-[12px] font-semibold"
+                    ? "bg-[#D8E8CB] text-[#121F0D] font-bold drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)]"
+                    : "text-[#E5EAE0] hover:text-white hover:bg-white/[0.05] font-semibold"
                 }`}
               >
                 <div className="relative shrink-0 size-[20px] flex items-center justify-center">
                   <IconComponent
                     size={19}
                     strokeWidth={isActive ? 2.2 : 1.8}
-                    className={isActive ? "text-white" : "text-[#C5D0C0]"}
+                    className={isActive ? "text-[#121F0D]" : "text-[#C5D0C0]"}
                   />
                 </div>
                 {!isCollapsed && (
-                  <span className="text-[13.5px] leading-[20px] whitespace-nowrap">
+                  <span className="text-[14px] leading-[20px] whitespace-nowrap">
                     {item.label}
                   </span>
                 )}

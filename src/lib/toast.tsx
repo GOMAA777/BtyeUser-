@@ -2,7 +2,7 @@
 
 import React from "react";
 import { toast as sonnerToast, type ExternalToast } from "sonner";
-import { Check, Clock, Info, X } from "lucide-react";
+import { Check, Info, X } from "lucide-react";
 
 export interface ShowToastOptions extends ExternalToast {
   description?: string;
@@ -162,11 +162,14 @@ export const showToast = {
   },
 };
 
+type ToastMessage = Parameters<typeof sonnerToast>[0];
+type ToastData = Parameters<typeof sonnerToast>[1];
+
 const customToast = Object.assign(
-  (message: any, data?: any) => sonnerToast(message, data),
+  (message: ToastMessage, data?: ToastData) => sonnerToast(message, data),
   sonnerToast,
   {
-    success: (message: any, options?: any) => {
+    success: (message: ToastMessage, options?: ExternalToast) => {
       if (typeof message === "string") {
         return sonnerToast.custom((t) => <SuccessToast id={t} message={message} />, {
           duration: 4000,
@@ -175,7 +178,7 @@ const customToast = Object.assign(
       }
       return sonnerToast.success(message, options);
     },
-    error: (message: any, options?: any) => {
+    error: (message: ToastMessage, options?: ExternalToast) => {
       if (typeof message === "string") {
         return sonnerToast.custom((t) => <ErrorToast id={t} message={message} />, {
           duration: 4500,
@@ -184,7 +187,7 @@ const customToast = Object.assign(
       }
       return sonnerToast.error(message, options);
     },
-    info: (title: any, options?: any) => {
+    info: (title: ToastMessage, options?: ShowToastOptions) => {
       if (typeof title === "string" && options?.description) {
         return sonnerToast.custom(
           (t) => <DevelopmentToast id={t} title={title} description={options.description} />,
@@ -196,7 +199,7 @@ const customToast = Object.assign(
       }
       return sonnerToast.info(title, options);
     },
-    underDevelopment: (featureName: string, options?: any) => {
+    underDevelopment: (featureName: string, options?: ShowToastOptions) => {
       return sonnerToast.custom((t) => <DevelopmentToast id={t} featureName={featureName} />, {
         duration: 6000,
         ...options,

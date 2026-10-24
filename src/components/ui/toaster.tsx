@@ -12,6 +12,13 @@ export function Toaster() {
       offset="24px"
       gap={12}
       duration={5000}
+      style={
+        {
+          "--width": "420px",
+          "--offset-left": "24px",
+          "--offset-bottom": "24px",
+        } as React.CSSProperties
+      }
     />
   );
 }
