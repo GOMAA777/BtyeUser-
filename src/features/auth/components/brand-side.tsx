@@ -3,7 +3,7 @@ import Image from "next/image";
 export function BrandSide() {
   return (
     <div
-      className="hidden lg:flex bg-brand-panel flex-col items-start justify-between overflow-hidden p-[64px] relative self-stretch shrink-0 w-[563px] z-[1]"
+      className="flex bg-brand-panel flex-col items-start justify-between overflow-hidden p-[64px] relative self-stretch w-full max-w-[563px] z-[1]"
       data-node-id="1:111"
     >
       {/* Background Architectural Grid / Lines */}
@@ -91,7 +91,7 @@ export function BrandSide() {
 
         {/* Heading 1 */}
         <h1
-          className="font-cairo font-bold text-[34px] xl:text-[36px] leading-[45px] text-white text-right"
+          className="font-cairo font-bold text-[36px] leading-[45px] text-white text-right"
           data-node-id="1:138"
         >
           المنظومة المتكاملة لإدارة
@@ -103,7 +103,7 @@ export function BrandSide() {
 
         {/* Subtitle Description */}
         <p
-          className="font-cairo font-normal text-[15px] xl:text-[16px] leading-[26px] text-brand-panel-text text-right max-w-[480px]"
+          className="font-cairo font-normal text-[16px] leading-[26px] text-brand-panel-text text-right max-w-[480px]"
           data-node-id="1:140"
         >
           تمكّن مُلاك العقارات، الصناديق الاستثمارية، ومديري الضيافة من أتمتة الإشغال، التحصيل، وتكامل الأنظمة التشغيلية عبر تجربة ذكية موحدة وموثوقة.
@@ -135,7 +135,7 @@ export function BrandSide() {
             </div>
             <div className="flex flex-col gap-[2px] flex-1 text-right" data-node-id="1:144">
               <h3
-                className="font-cairo font-semibold text-[17px] leading-[26px] text-white"
+                className="font-cairo font-semibold text-[18px] leading-[28px] text-white"
                 data-node-id="1:146"
               >
                 ربط مباشر مع منصات الحجز والتقويم الذكي
@@ -170,7 +170,7 @@ export function BrandSide() {
             </div>
             <div className="flex flex-col gap-[2px] flex-1 text-right" data-node-id="1:153">
               <h3
-                className="font-cairo font-semibold text-[17px] leading-[26px] text-white"
+                className="font-cairo font-semibold text-[18px] leading-[28px] text-white"
                 data-node-id="1:155"
               >
                 إدارة تشغيلية وأقفال ذكية بدون تدخل يدوي
@@ -205,7 +205,7 @@ export function BrandSide() {
             </div>
             <div className="flex flex-col gap-[2px] flex-1 text-right" data-node-id="1:162">
               <h3
-                className="font-cairo font-semibold text-[17px] leading-[26px] text-white"
+                className="font-cairo font-semibold text-[18px] leading-[28px] text-white"
                 data-node-id="1:164"
               >
                 تقارير مالية وتوافق تشغيلي معتمد

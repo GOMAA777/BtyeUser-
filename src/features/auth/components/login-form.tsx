@@ -154,12 +154,27 @@ export function LoginForm() {
           className="flex items-center gap-[12px] cursor-pointer select-none"
           data-node-id="1:62"
         >
-          <input
-            type="checkbox"
-            {...register("rememberMe")}
-            className="size-[20px] rounded-[2.5px] border-[#dfe4db] text-[#4b5940] focus:ring-[#303b25] accent-[#4b5940] cursor-pointer"
-            data-node-id="1:65"
-          />
+          <div className="relative size-[20px] shrink-0" data-node-id="1:65">
+            <input
+              type="checkbox"
+              {...register("rememberMe")}
+              className="peer sr-only"
+              id="rememberMe"
+            />
+            <div className="size-[20px] rounded-[3px] border border-[#dfe4db] bg-white peer-checked:bg-[#4b5940] peer-checked:border-[#4b5940] flex items-center justify-center transition-all shadow-sm [&>svg]:opacity-0 peer-checked:[&>svg]:opacity-100">
+              <svg
+                className="size-[12px] text-white transition-opacity"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+          </div>
           <span className="font-cairo font-normal text-[14px] leading-[22px] text-[#181d17]">
             تذكرني على هذا الجهاز
           </span>
