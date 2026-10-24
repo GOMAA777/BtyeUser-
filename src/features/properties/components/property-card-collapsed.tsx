@@ -158,7 +158,7 @@ export function PropertyCardCollapsed({
               </span>
               <div className="flex items-baseline gap-[4px]">
                 <span className="font-cairo font-bold text-[#34422A] text-[18px] leading-[28px]">
-                  {property.expectedMonthlyIncome.toLocaleString("ar-SA")}
+                  {property.expectedMonthlyIncome.toLocaleString("en-US")}
                 </span>
                 <span className="font-cairo font-normal text-[#454840] text-[13px] leading-[20px]">
                   ر.س
