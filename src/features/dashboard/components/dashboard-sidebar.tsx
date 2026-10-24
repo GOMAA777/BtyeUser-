@@ -39,7 +39,7 @@ const mainNavItems: NavItem[] = [
   },
   {
     label: "العقارات",
-    href: "#properties",
+    href: "/properties/import",
     icon: Building2,
   },
   {

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { toast as sonnerToast, type ExternalToast } from "sonner";
-import { Check, Clock, X } from "lucide-react";
+import { Check, Clock, Info, X } from "lucide-react";
 
 export interface ShowToastOptions extends ExternalToast {
   description?: string;
@@ -13,7 +13,7 @@ export interface ShowToastOptions extends ExternalToast {
  * Soft mint pill, green filled checkmark circle, dark green text.
  */
 export function SuccessToast({
-  id: _id,
+  id,
   message,
 }: {
   id: string | number;
@@ -22,7 +22,7 @@ export function SuccessToast({
   return (
     <div
       dir="rtl"
-      className="flex items-center gap-[10px] bg-[#EDFAF0] border border-[#A4E7B8] rounded-[16px] px-[18px] py-[12px] shadow-[0px_4px_16px_rgba(14,98,56,0.08)] w-fit min-w-[260px] max-w-[420px] font-cairo select-none"
+      className="relative flex items-center gap-[10px] bg-[#EDFAF0] border border-[#A4E7B8] rounded-[16px] px-[16px] py-[11px] shadow-[0px_4px_16px_rgba(14,98,56,0.08)] w-fit min-w-[260px] max-w-[calc(100vw-48px)] font-cairo select-none"
     >
       <div className="size-[22px] rounded-full bg-[#0E6238] flex items-center justify-center shrink-0 shadow-sm">
         <Check size={13} strokeWidth={3} className="text-white" />
@@ -30,14 +30,22 @@ export function SuccessToast({
       <span className="font-cairo font-bold text-[13.5px] leading-[20px] text-[#0E6238] whitespace-nowrap">
         {message}
       </span>
+      <button
+        type="button"
+        onClick={() => sonnerToast.dismiss(id)}
+        aria-label="إغلاق التنبيه"
+        className="ms-[6px] text-[#0E6238]/60 hover:text-[#0E6238] transition-colors p-[2px] cursor-pointer"
+      >
+        <X size={13} strokeWidth={2.5} />
+      </button>
     </div>
   );
 }
 
 /**
  * Image 2: Announcement & Under Development Card Toast
- * Floating white card, top-left close button, sage clock badge,
- * bold title and muted description with generous spacing and zero overlapping.
+ * Floating white card, top-left close button inside card, sage info badge,
+ * bold title and muted description with zero clipping or text overlap.
  */
 export function DevelopmentToast({
   id,
@@ -58,25 +66,25 @@ export function DevelopmentToast({
   return (
     <div
       dir="rtl"
-      className="relative flex items-start gap-[14px] bg-white border border-[#DFE4DB] rounded-[16px] p-[18px] sm:p-[20px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] w-[390px] sm:w-[420px] max-w-[calc(100vw-32px)] font-cairo select-none"
+      className="relative flex items-start gap-[14px] bg-white border border-[#DFE4DB] rounded-[16px] p-[16px] sm:p-[18px] shadow-[0px_10px_30px_rgba(0,0,0,0.08)] w-[380px] sm:w-[410px] max-w-[calc(100vw-48px)] font-cairo select-none"
     >
-      {/* 1. Circular Close Button on Top-Left Corner (matches image exactly) */}
+      {/* 1. Circular Close Button on Top-Left Corner (inside card, zero offscreen overflow) */}
       <button
         type="button"
         onClick={() => sonnerToast.dismiss(id)}
         aria-label="إغلاق التنبيه"
-        className="absolute -top-[10px] -left-[10px] size-[26px] rounded-full bg-white border border-[#DFE4DB] shadow-sm flex items-center justify-center text-[#75786F] hover:text-[#181D17] hover:scale-105 transition-all cursor-pointer z-20"
+        className="absolute top-[12px] left-[12px] size-[24px] rounded-full bg-[#F5F7F3] hover:bg-[#E5EAE0] border border-[#DFE4DB] flex items-center justify-center text-[#75786F] hover:text-[#181D17] transition-all cursor-pointer z-10"
       >
         <X size={13} strokeWidth={2.2} />
       </button>
 
-      {/* 2. Clock Icon in Sage Circle on the Right (RTL start) */}
-      <div className="size-[40px] rounded-full bg-[#EEF5E9] flex items-center justify-center shrink-0 text-[#34422A] mt-[2px]">
-        <Clock size={20} strokeWidth={1.8} />
+      {/* 2. Info Icon in Sage Circle on the Right (RTL start) matching reference */}
+      <div className="size-[38px] rounded-full bg-[#EEF5E9] border border-[#D5E0CF] flex items-center justify-center shrink-0 text-[#303A2C] mt-[2px]">
+        <Info size={19} strokeWidth={2.2} />
       </div>
 
-      {/* 3. Text Body on the Left (aligned right, proper spacing, NO OVERLAP) */}
-      <div className="flex flex-col gap-[4px] text-right flex-1 min-w-0">
+      {/* 3. Text Body on the Left (aligned right, proper spacing, pe-6 to avoid close button) */}
+      <div className="flex flex-col gap-[4px] text-right flex-1 min-w-0 pe-[22px]">
         <h4 className="font-cairo font-bold text-[14px] leading-[22px] text-[#181D17]">
           {displayTitle}
         </h4>
@@ -92,7 +100,7 @@ export function DevelopmentToast({
  * Error Toast matching the design system
  */
 export function ErrorToast({
-  id: _id,
+  id,
   message,
 }: {
   id: string | number;
@@ -101,7 +109,7 @@ export function ErrorToast({
   return (
     <div
       dir="rtl"
-      className="flex items-center gap-[10px] bg-[#FFF0F0] border border-[#FFCDD2] rounded-[16px] px-[18px] py-[12px] shadow-[0px_4px_16px_rgba(186,26,26,0.08)] w-fit min-w-[260px] max-w-[420px] font-cairo select-none"
+      className="relative flex items-center gap-[10px] bg-[#FFF0F0] border border-[#FFCDD2] rounded-[16px] px-[16px] py-[11px] shadow-[0px_4px_16px_rgba(186,26,26,0.08)] w-fit min-w-[260px] max-w-[calc(100vw-48px)] font-cairo select-none"
     >
       <div className="size-[22px] rounded-full bg-[#BA1A1A] flex items-center justify-center shrink-0 shadow-sm">
         <X size={13} strokeWidth={3} className="text-white" />
@@ -109,6 +117,14 @@ export function ErrorToast({
       <span className="font-cairo font-bold text-[13.5px] leading-[20px] text-[#BA1A1A] whitespace-nowrap">
         {message}
       </span>
+      <button
+        type="button"
+        onClick={() => sonnerToast.dismiss(id)}
+        aria-label="إغلاق التنبيه"
+        className="ms-[6px] text-[#BA1A1A]/60 hover:text-[#BA1A1A] transition-colors p-[2px] cursor-pointer"
+      >
+        <X size={13} strokeWidth={2.5} />
+      </button>
     </div>
   );
 }
