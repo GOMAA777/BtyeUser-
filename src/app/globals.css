@@ -194,6 +194,9 @@ body {
 [data-sonner-toaster] {
   font-family: var(--font-cairo), Cairo, sans-serif !important;
   z-index: 999999 !important;
+  width: auto !important;
+  max-width: calc(100vw - 32px) !important;
+  overflow: visible !important;
 }
 
 [data-sonner-toaster][data-x-position='left'] {
@@ -209,6 +212,13 @@ body {
 [data-sonner-toast] {
   font-family: var(--font-cairo), Cairo, sans-serif !important;
   direction: rtl !important;
+  width: auto !important;
+  max-width: calc(100vw - 32px) !important;
+  overflow: visible !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 /* 1. Success Toast (Single-line Pill, Image 1) */
