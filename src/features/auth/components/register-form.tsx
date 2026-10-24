@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -15,6 +15,10 @@ export function RegisterForm() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    router.prefetch("/onboarding");
+  }, [router]);
+
   const {
     register,
     handleSubmit,
@@ -23,11 +27,11 @@ export function RegisterForm() {
   } = useForm<RegisterInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
-      fullName: "",
-      phone: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      fullName: "محمد بن ناصر العتيبي",
+      phone: "0501234567",
+      email: "mohammed@abraj.sa",
+      password: "Password123!",
+      confirmPassword: "Password123!",
       acceptTerms: true,
     },
   });
@@ -38,7 +42,7 @@ export function RegisterForm() {
   const onSubmit = async (data: RegisterInput) => {
     setIsLoading(true);
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      await new Promise((resolve) => setTimeout(resolve, 350));
       toast.success("تم إنشاء حسابك بنجاح! جاري تحويلك...");
       router.push("/onboarding");
     } catch {
