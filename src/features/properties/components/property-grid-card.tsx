@@ -5,15 +5,25 @@ import Image from "next/image";
 import { PropertyItem } from "../types";
 import { showToast } from "@/lib/toast";
 
+import { PropertyActionsMenu } from "./property-actions-menu";
+
 interface PropertyGridCardProps {
   property: PropertyItem;
   onViewDetails?: (property: PropertyItem) => void;
+  onEdit?: (property: PropertyItem) => void;
+  onArchive?: (property: PropertyItem) => void;
 }
 
-export function PropertyGridCard({ property, onViewDetails }: PropertyGridCardProps) {
+export function PropertyGridCard({
+  property,
+  onViewDetails,
+  onEdit,
+  onArchive,
+}: PropertyGridCardProps) {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleView = () => {
+    setShowMenu(false);
     if (onViewDetails) {
       onViewDetails(property);
     } else {
@@ -21,9 +31,22 @@ export function PropertyGridCard({ property, onViewDetails }: PropertyGridCardPr
     }
   };
 
-  const handleMenuAction = (action: string) => {
+  const handleEdit = () => {
     setShowMenu(false);
-    showToast.info(action, `تم اختيار ${action} لـ ${property.name}`);
+    if (onEdit) {
+      onEdit(property);
+    } else {
+      showToast.info("تعديل العقار", `تعديل بيانات ${property.name}.`);
+    }
+  };
+
+  const handleArchive = () => {
+    setShowMenu(false);
+    if (onArchive) {
+      onArchive(property);
+    } else {
+      showToast.success(`تمت أرشفة ${property.name} بنجاح.`);
+    }
   };
 
   return (
@@ -102,43 +125,19 @@ export function PropertyGridCard({ property, onViewDetails }: PropertyGridCardPr
             </div>
           </button>
 
-          {/* Options Dropdown Menu */}
+          {/* Options Dropdown Menu (Figma Node 1:3938) */}
           {showMenu && (
             <>
               <div
                 className="fixed inset-0 z-30"
                 onClick={() => setShowMenu(false)}
               />
-              <div className="absolute left-0 mt-[6px] w-[160px] bg-white rounded-[12px] shadow-lg border border-[#e5e8e2] py-[6px] z-40 font-cairo text-[12px]">
-                <button
-                  type="button"
-                  onClick={() => handleMenuAction("تعديل بيانات العقار")}
-                  className="w-full text-right px-[12px] py-[8px] text-[#181d17] hover:bg-[#f6f7f4] transition-colors"
-                >
-                  تعديل بيانات العقار
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleMenuAction("إدارة الوحدات")}
-                  className="w-full text-right px-[12px] py-[8px] text-[#181d17] hover:bg-[#f6f7f4] transition-colors"
-                >
-                  إدارة الوحدات
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleMenuAction("سجل الحجوزات")}
-                  className="w-full text-right px-[12px] py-[8px] text-[#181d17] hover:bg-[#f6f7f4] transition-colors"
-                >
-                  سجل الحجوزات
-                </button>
-                <div className="my-[4px] border-t border-[#f0f2ed]" />
-                <button
-                  type="button"
-                  onClick={() => handleMenuAction("أرشفة العقار")}
-                  className="w-full text-right px-[12px] py-[8px] text-[#ba1a1a] hover:bg-[#fef2f2] transition-colors"
-                >
-                  أرشفة العقار
-                </button>
+              <div className="absolute left-0 mt-[6px] z-40">
+                <PropertyActionsMenu
+                  onView={handleView}
+                  onEdit={handleEdit}
+                  onArchive={handleArchive}
+                />
               </div>
             </>
           )}
