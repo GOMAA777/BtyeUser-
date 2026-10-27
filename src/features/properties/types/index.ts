@@ -33,3 +33,24 @@ export interface ImportedProperty {
   statusText: string;
   units: PropertyUnit[];
 }
+
+export interface PropertyItem {
+  id: string;
+  name: string;
+  type: string;
+  status: "active" | "inactive";
+  statusText: string;
+  unitsCount: number;
+  unitsCountText: string;
+  rentedCount: number;
+  rentedCountText: string;
+  smartLocksStatus: string;
+  smartLocksConnected: boolean;
+  city: string;
+  district: string;
+  street: string;
+  imageSrc: string;
+  typeBadgeIcon: string;
+  badgeIcon: string;
+  lastUpdatedRelative: string;
+}

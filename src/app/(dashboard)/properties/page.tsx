@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { ImportedPropertiesView } from "@/features/properties/components/imported-properties-view";
+import { PropertiesView } from "@/features/properties/components/properties-view";
 
 export const metadata: Metadata = {
-  title: "مراجعة العقارات المستوردة | أبراج",
-  description: "مراجعة واعتماد العقارات والوحدات والحجوزات المستوردة من Booking.com",
+  title: "العقارات | أبراج",
+  description: "إدارة عقاراتك ومتابعة بياناتها ووحداتها.",
 };
 
 export default function PropertiesPage() {
-  return <ImportedPropertiesView />;
+  return <PropertiesView />;
 }
