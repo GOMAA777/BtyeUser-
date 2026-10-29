@@ -305,3 +305,32 @@ body {
   color: #181D17 !important;
 }
 
+@keyframes indeterminate-bar {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(-150%);
+  }
+}
+
+.animate-indeterminate-bar {
+  animation: indeterminate-bar 1.5s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
