@@ -5,44 +5,52 @@ import Image from "next/image";
 
 export function AddUnitHeroBar() {
   return (
-    <div className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] rounded-[16px] p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-      {/* Title & Step info */}
-      <div className="flex flex-col items-start gap-2">
-        <div className="flex items-center gap-3">
-          <div className="bg-[#dfefe3]/70 flex items-center gap-1.5 px-3 py-1 rounded-full shrink-0">
-            <span className="font-bold text-[#34422a] text-xs">
-              الخطوة 2 من 2
-            </span>
-            <div className="bg-[#34422a] rounded-full size-2 shrink-0" />
-          </div>
-          <h1 className="font-bold text-[#181d17] text-2xl leading-none">
-            إضافة وحدة
-          </h1>
-        </div>
-        <p className="font-normal text-[#75786f] text-sm leading-relaxed max-w-2xl">
+    <div
+      className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] rounded-[16px] p-6 lg:px-[32px] lg:py-[24px] flex flex-col md:flex-row md:items-center justify-between gap-4 w-full"
+      data-node-id="1:4687"
+      data-name="Section - TOP HERO GREETING BAR"
+      dir="rtl"
+    >
+      {/* Right side in RTL: Title & Subtitle */}
+      <div className="flex flex-col items-start gap-1">
+        <h1
+          className="font-cairo font-bold text-[#181d17] text-[24px] leading-[34px]"
+          data-node-id="1:4692"
+          data-name="Heading 1"
+        >
+          إضافة وحدة
+        </h1>
+        <p
+          className="font-cairo font-normal text-[#75786f] text-[14px] leading-[22px] max-w-2xl"
+          data-node-id="1:4695"
+        >
           أدخل مواصفات وتفاصيل الوحدة لتفعيل إدارتها وتخصيص التسعير الموسمي وربط الأقفال الذكية وأنظمة الجدولة.
         </p>
       </div>
 
-      {/* Back link */}
+      {/* Left side in RTL: Back Link */}
       <Link
-        href="/properties"
-        className="bg-[#f1f5eb] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] hover:bg-[#e4ebd9] active:scale-[0.98] transition-all duration-150 flex items-center gap-1.5 h-[38px] px-4 py-1 rounded-[12px] shrink-0 self-start md:self-center"
+        href="/units"
+        className="bg-[#f1f5eb] hover:bg-[#e4ebd9] active:scale-[0.98] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] transition-all h-[38px] px-[16px] py-[4px] rounded-[12px] flex items-center gap-[6px] shrink-0 self-start md:self-center"
+        data-node-id="1:4696"
+        data-name="Link"
       >
-        <span className="font-semibold text-[#181d17] text-xs">
-          العودة إلى العقارات
+        <span
+          className="font-cairo font-semibold text-[#181d17] text-[12px] leading-[18px] whitespace-nowrap"
+          data-node-id="1:4700"
+        >
+          العودة إلى الوحدات
         </span>
-        <div className="relative size-3 shrink-0">
+        <div className="relative size-[12px] shrink-0" data-node-id="1:4697">
           <Image
-            src="/assets/units/add/2cddfb0f89c224217f4575b4e9c396ae153a7545.svg"
-            alt="arrow"
+            src="/assets/units/add/a75e9.svg"
+            alt="العودة"
             width={12}
             height={12}
-            className="w-full h-full object-contain"
+            className="size-full object-contain"
           />
         </div>
       </Link>
     </div>
   );
 }
-

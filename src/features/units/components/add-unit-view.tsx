@@ -8,8 +8,9 @@ export function AddUnitView() {
   return (
     <div
       className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"
-      data-node-id="1:2381"
-      data-name="Main"
+      data-node-id="1:4685"
+      data-name="إضافة وحدة"
+      dir="rtl"
     >
       {/* 1. Top Hero Greeting Bar */}
       <AddUnitHeroBar />
@@ -22,4 +23,3 @@ export function AddUnitView() {
     </div>
   );
 }
-

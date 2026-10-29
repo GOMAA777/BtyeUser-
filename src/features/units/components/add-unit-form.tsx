@@ -30,13 +30,13 @@ export function AddUnitForm() {
       images: [
         {
           id: "1",
-          url: "/assets/units/add/b14895c22382581dc19733176d83b9f7531d5cc2.png",
+          url: "/assets/units/add/6d126.png",
           caption: "غرفة المعيشة وغرفة النوم الرئيسية",
           isPrimary: true,
         },
         {
           id: "2",
-          url: "/assets/units/add/b9170a6920b0b50d41f62833bad5ab98f44e2aa2.png",
+          url: "/assets/units/add/705d7.png",
           caption: "إطلالة أفق الرياض والمطبخ التحضيري",
           isPrimary: false,
         },
@@ -53,8 +53,10 @@ export function AddUnitForm() {
     try {
       const result = await addUnitAction(data);
       if (result.success) {
-        showToast.success(`تمت إضافة الوحدة بنجاح (${data.unitNumber}) - اكتمل إعداد العقار`);
-        router.push("/properties/ready");
+        showToast.success(
+          `تمت إضافة الوحدة بنجاح (${data.unitNumber}) - اكتمل إعداد العقار`
+        );
+        router.push("/units");
       } else {
         showToast.error(result.error || "حدث خطأ أثناء إضافة الوحدة");
       }
@@ -66,11 +68,23 @@ export function AddUnitForm() {
   };
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-6 w-full">
+    <form
+      onSubmit={form.handleSubmit(onSubmit)}
+      className="flex flex-col gap-[24px] w-full"
+      dir="rtl"
+    >
       {/* 12-column Grid: 8 columns Specs/Description/Gallery + 4 columns Pricing/Access */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div
+        className="grid grid-cols-1 lg:grid-cols-12 gap-[24px] items-start w-full"
+        data-node-id="1:4737"
+        data-name="Main Multi-section Form Grid"
+      >
         {/* Right column in RTL / Primary specifications (8 cols) */}
-        <div className="lg:col-span-8 flex flex-col gap-6">
+        <div
+          className="lg:col-span-8 flex flex-col gap-[24px] w-full"
+          data-node-id="1:4738"
+          data-name="Left Column (8 cols): Primary Specifications & Gallery"
+        >
           {/* Section 1: البيانات الأساسية للوحدة */}
           <UnitPrimarySpecs form={form} />
 
@@ -82,7 +96,11 @@ export function AddUnitForm() {
         </div>
 
         {/* Left column in RTL / Pricing & Telemetry (4 cols) */}
-        <div className="lg:col-span-4 flex flex-col gap-6">
+        <div
+          className="lg:col-span-4 flex flex-col gap-[24px] w-full"
+          data-node-id="1:4894"
+          data-name="Right Column (4 cols): Pricing, Access Code & System Telemetry"
+        >
           {/* Section 4: التسعير والسعة */}
           <UnitPricingCapacity form={form} />
 
@@ -96,4 +114,3 @@ export function AddUnitForm() {
     </form>
   );
 }
-

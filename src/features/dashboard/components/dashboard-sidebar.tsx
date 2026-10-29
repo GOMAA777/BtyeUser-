@@ -44,7 +44,7 @@ const mainNavItems: NavItem[] = [
   },
   {
     label: "الوحدات",
-    href: "#units",
+    href: "/units",
     icon: Home,
   },
   {
@@ -160,7 +160,8 @@ export function DashboardSidebar() {
           {mainNavItems.map((item) => {
             const isActive =
               (item.href === "/dashboard" && pathname === "/dashboard") ||
-              (item.href.includes("properties") && pathname.includes("properties"));
+              (item.href.includes("properties") && pathname.includes("properties")) ||
+              (item.href === "/units" && pathname.startsWith("/units"));
             const IconComponent = item.icon;
 
             return (
