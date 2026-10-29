@@ -54,7 +54,7 @@ const mainNavItems: NavItem[] = [
   },
   {
     label: "الصيانة والتنظيف",
-    href: "#maintenance",
+    href: "/maintenance",
     icon: Wrench,
   },
   {
@@ -161,7 +161,9 @@ export function DashboardSidebar() {
             const isActive =
               (item.href === "/dashboard" && pathname === "/dashboard") ||
               (item.href.includes("properties") && pathname.includes("properties")) ||
-              (item.href === "/units" && pathname.startsWith("/units"));
+              (item.href === "/units" && pathname.startsWith("/units")) ||
+              (item.href === "/bookings" && pathname.startsWith("/bookings")) ||
+              (item.href === "/maintenance" && pathname.startsWith("/maintenance"));
             const IconComponent = item.icon;
 
             return (

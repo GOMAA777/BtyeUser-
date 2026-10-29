@@ -1,0 +1,158 @@
+import { MaintenanceReport, OperationLogEvent } from "../types/maintenance";
+
+export const mockMaintenanceReportMT2048: MaintenanceReport = {
+  id: "MT-2048",
+  unitId: "305",
+  unitNumber: "الوحدة 305",
+  unitSubtitle: "(الطابق الثالث - جناح A)",
+  property: "برج الياسمين",
+  propertyLocation: "حي الملقا، الرياض",
+  ownerName: "سارة القحطاني",
+  ownerId: "OWN-8823",
+  problemType: "قفل الباب الذكي (Smart Lock Failure)",
+  problemCategory: "locks",
+  categoryLabel: "أقفال ومداخل إلكترونية",
+  impactScope: "تعطيل وصول النزيل كلياً",
+  priority: "urgent",
+  priorityLabel: "عاجلة وفورية",
+  status: "in_progress",
+  statusLabel: "قيد التنفيذ",
+  reportDate: "17 سبتمبر 2026 - 04:15 م",
+  technicianName: "م. طارق العسيري",
+  technicianRole: "فني أقفال وبوابات ذكية معتمد",
+  problemDescription:
+    "تعذر فتح قفل الباب الذكي إلكترونياً عبر تطبيق النزيل أو الكود المؤقت، مع صدور إشارة وميض حمراء مستمرة تشير إلى نفاد البطارية الاحتياطية أو عطل في آلية الترباس الميكانيكي الداخلي للقفل.",
+  technicianNotes:
+    "تم فحص وحدة التغذية والمحرك المغناطيسي؛ لوحظ انخفاض الجهد الكهربائي إلى 2.1 فولت مما تسبب في توقف استجابة وحدة البلوتوث. تم تركيب بطاريات ليثيوم صناعية جديدة وإعادة ضبط التزامن السحابي لكود TTLock بنجاح وجاري الاختبار النهائي.",
+  documentationPhotos: [
+    "/assets/maintenance/details/c055b.png",
+    "/assets/maintenance/details/3363d.png",
+  ],
+  impactedBooking: {
+    id: "BK-8821",
+    guestName: "سعود العتيبي",
+    checkInDate: "غداً، 18 سبتمبر 2026 - 02:00 م",
+    hoursRemaining: 22,
+  },
+  timeline: [
+    {
+      id: "tl-1",
+      title: "تم تسجيل البلاغ في النظام",
+      time: "17 سبتمبر 2026 - 04:15 م",
+      description: "تم تسجيل البلاغ آلياً عبر نظام استشعار الأعطال الذكي مع تحديد أولوية عاجلة.",
+      status: "completed",
+      actor: "النظام الآلي",
+    },
+    {
+      id: "tl-2",
+      title: "إسناد المهمة لفريق الصيانة الميدانية",
+      time: "17 سبتمبر 2026 - 04:22 م",
+      description: "تم تعيين م. طارق العسيري وتأكيد استلام أمر العمل الميداني.",
+      status: "completed",
+      actor: "مدير التشغيل (محمد أحمد)",
+    },
+    {
+      id: "tl-3",
+      title: "بدء تنفيذ أعمال الصيانة ميدانياً",
+      time: "17 سبتمبر 2026 - 04:45 م",
+      description: "باشر الفني فحص القفل واستبدال الخلايا الكهربائية ومعايرة محاذاة الباب.",
+      status: "current",
+      actor: "م. طارق العسيري",
+    },
+    {
+      id: "tl-4",
+      title: "إكمال الصيانة والتحقق التشغيلي",
+      time: "متوقع خلال 30 دقيقة",
+      description: "إجراء اختبار الفتح عن بُعد، والتأكد من جاهزية كود النزيل القادم واعتماد البلاغ.",
+      status: "pending",
+      actor: "فحص الجودة",
+    },
+  ],
+};
+
+export const mockOperationLogsUnit204: OperationLogEvent[] = [
+  {
+    id: "log-1",
+    date: "18 سبتمبر 2026",
+    time: "04:30 م",
+    title: "اكتمال استبدال بطارية القفل الذكي وإعادة المعايرة",
+    category: "maintenance",
+    categoryLabel: "صيانة فورية",
+    status: "verified",
+    statusLabel: "معتمد بالكامل",
+    operatorName: "م. طارق العسيري",
+    operatorRole: "فريق الصيانة والأنظمة",
+    summary:
+      "تم استبدال طقم بطاريات الليثيوم والتأكد من تحديث كود الدخول المؤقت وربطه مع بوابة الحجز، واختبار استجابة الترباس 5 مرات متتالية بنجاح 100%.",
+    specs: [
+      { label: "رقم البلاغ", value: "MT-2048" },
+      { label: "مدة التنفيذ", value: "35 دقيقة" },
+      { label: "الجهد بعد الصيانة", value: "6.2V مستقر" },
+    ],
+    images: [
+      "/assets/maintenance/logs/f5648.png",
+      "/assets/maintenance/logs/7ed8d.png",
+    ],
+  },
+  {
+    id: "log-2",
+    date: "18 سبتمبر 2026",
+    time: "02:15 م",
+    title: "تنفيذ قائمة فحص النظافة العميقة والتعقيم الفندقي",
+    category: "cleaning",
+    categoryLabel: "نظافة وتعقيم",
+    status: "verified",
+    statusLabel: "معتمد بالكامل",
+    operatorName: "فريق شركة الرائد للنظافة",
+    operatorRole: "طاقم التدبير المنزلي",
+    summary:
+      "إتمام جميع بنود قائمة التدبير المنزلي (32 بنداً): غسيل الشراشف، تعقيم الأسطح، فحص المعطرات، والتأكد من اكتمال مستلزمات الضيافة الفاخرة.",
+    specs: [
+      { label: "الالتزام بالقائمة", value: "100% (32/32)" },
+      { label: "زمن الإنجاز", value: "50 دقيقة" },
+      { label: "المشرف المسؤول", value: "سعد الشهري" },
+    ],
+    images: [
+      "/assets/maintenance/logs/636ec.png",
+      "/assets/maintenance/logs/27610.png",
+    ],
+  },
+  {
+    id: "log-3",
+    date: "17 سبتمبر 2026",
+    time: "11:40 ص",
+    title: "تسجيل مغادرة النزيل السابق وتفتيش السلامة الأولية",
+    category: "turnover",
+    categoryLabel: "تبديل مستأجر",
+    status: "completed",
+    statusLabel: "مكتمل",
+    operatorName: "فهد الدوسري",
+    operatorRole: "مشرف استقبال وتسليم",
+    summary:
+      "خروج النزيل فهد التميمي بعد انتهاء إقامة 3 ليالٍ. تم استلام الوحدة والتأكد من سلامة الأثاث والأجهزة الكهربائية ومحتويات المطبخ.",
+    specs: [
+      { label: "رقم الحجز السابق", value: "BK-7950" },
+      { label: "حالة الأثاث", value: "سليم وخالٍ من الأضرار" },
+      { label: "فقدان متعلقات", value: "لا يوجد" },
+    ],
+  },
+  {
+    id: "log-4",
+    date: "14 سبتمبر 2026",
+    time: "09:00 ص",
+    title: "الفحص الدوري الوقائي لمكيفات الهواء والتبريد",
+    category: "inspection",
+    categoryLabel: "فحص دوري وقائي",
+    status: "verified",
+    statusLabel: "معتمد بالكامل",
+    operatorName: "مؤسسة نسيم البرود",
+    operatorRole: "فني تكييف وتبريد",
+    summary:
+      "تنظيف فلاتر المكيفات الثلاثة في الصالة وغرف النوم، قياس ضغط غاز الفريون وتنظيف مجاري تصريف المياه للتأكد من انعدام أي تسريب.",
+    specs: [
+      { label: "ضغط التبريد", value: "65 PSI ممتاز" },
+      { label: "درجة الحرارة الخارجة", value: "18°C" },
+      { label: "الفلاتر", value: "معقمة ومغسولة" },
+    ],
+  },
+];
