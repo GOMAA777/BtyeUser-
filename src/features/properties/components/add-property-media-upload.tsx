@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { showToast } from "@/lib/toast";
+import { DeletePropertyImageModal } from "./delete-property-image-modal";
 
 interface AddPropertyMediaUploadProps {
   onImageChange?: (imageUrl: string) => void;
@@ -12,6 +13,8 @@ export function AddPropertyMediaUpload({ onImageChange }: AddPropertyMediaUpload
   const [previewImage, setPreviewImage] = useState<string | null>(
     "/assets/properties/add/building-preview.png"
   );
+  const [fileName, setFileName] = useState("villa-luxury-facade-render-01.jpg");
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -22,6 +25,7 @@ export function AddPropertyMediaUpload({ onImageChange }: AddPropertyMediaUpload
         showToast.error("حجم الملف يتجاوز 10 ميجابايت");
         return;
       }
+      setFileName(file.name);
       const reader = new FileReader();
       reader.onload = (event) => {
         const url = event.target?.result as string;
@@ -35,8 +39,13 @@ export function AddPropertyMediaUpload({ onImageChange }: AddPropertyMediaUpload
 
   const handleDeleteImage = (e: React.MouseEvent) => {
     e.stopPropagation();
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
     setPreviewImage(null);
     onImageChange?.("");
+    setIsDeleteModalOpen(false);
     showToast.info("تمت إزالة الصورة الرئيسية", "يمكنك رفع صورة جديدة أو تصفح ملفاتك.");
   };
 
@@ -66,6 +75,7 @@ export function AddPropertyMediaUpload({ onImageChange }: AddPropertyMediaUpload
         showToast.error("حجم الملف يتجاوز 10 ميجابايت");
         return;
       }
+      setFileName(file.name);
       const reader = new FileReader();
       reader.onload = (event) => {
         const url = event.target?.result as string;
@@ -267,6 +277,15 @@ export function AddPropertyMediaUpload({ onImageChange }: AddPropertyMediaUpload
           </button>
         </div>
       </div>
+
+      {/* Delete Confirmation Modal (Figma Nodes 1:3899 & 1:3900) */}
+      <DeletePropertyImageModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={handleConfirmDelete}
+        imageSrc={previewImage || "/assets/properties/delete-modal-preview.png"}
+        fileName={fileName}
+      />
     </div>
   );
 }
