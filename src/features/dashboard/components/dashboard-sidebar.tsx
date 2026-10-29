@@ -163,7 +163,7 @@ export function DashboardSidebar() {
               (item.href.includes("properties") && pathname.includes("properties")) ||
               (item.href === "/units" && pathname.startsWith("/units")) ||
               (item.href === "/bookings" && pathname.startsWith("/bookings")) ||
-              (item.href === "/maintenance" && pathname.startsWith("/maintenance"));
+              (item.href === "/maintenance" && (pathname.startsWith("/maintenance") || pathname.startsWith("/operations")));
             const IconComponent = item.icon;
 
             return (

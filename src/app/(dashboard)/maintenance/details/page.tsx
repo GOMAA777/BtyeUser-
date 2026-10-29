@@ -1,14 +1,11 @@
 import { Metadata } from "next";
-import { CleaningDetailsView } from "@/features/maintenance/components/cleaning-details-view";
-import { initialTasks } from "@/features/maintenance/data/mock-maintenance";
+import { MaintenanceDetailsView } from "@/features/maintenance/components/maintenance-details-view";
 
 export const metadata: Metadata = {
-  title: "تفاصيل مهمة تنظيف | منصة ابراج",
-  description: "متابعة بيانات التنفيذ والتشغيل وسجل العمليات الفعلي والأقفال الذكية",
+  title: "تفاصيل بلاغ الصيانة MT-2048 | أبراج",
+  description: "متابعة أعمال الصيانة الميدانية، تشخيص الأعطال، والأثر التشغيلي على الوحدات والحجوزات",
 };
 
-export default function MaintenanceDefaultDetailsPage() {
-  const task =
-    initialTasks.find((t) => t.id === "CL-10482") || initialTasks[0];
-  return <CleaningDetailsView task={task} />;
+export default function MaintenanceDetailsPage() {
+  return <MaintenanceDetailsView />;
 }

@@ -1,10 +1,12 @@
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { CleaningDetailsView } from "@/features/maintenance/components/cleaning-details-view";
-import { initialTasks } from "@/features/maintenance/data/mock-maintenance";
+import { MaintenanceDetailsView } from "@/features/maintenance/components/maintenance-details-view";
 
 export function generateStaticParams() {
-  return initialTasks.map((t) => ({ id: t.id }));
+  return [
+    { id: "MT-2048" },
+    { id: "MT-2049" },
+    { id: "details" },
+  ];
 }
 
 interface MaintenancePageProps {
@@ -15,27 +17,12 @@ export async function generateMetadata({
   params,
 }: MaintenancePageProps): Promise<Metadata> {
   const { id } = await params;
-  const task = initialTasks.find((t) => t.id === id);
   return {
-    title: task
-      ? `مهمة ${task.typeLabel} ${task.reference} | منصة ابراج`
-      : `تفاصيل العملية ${id} | منصة ابراج`,
-    description: "متابعة بيانات التنفيذ والتشغيل وسجل العمليات الفعلي والأقفال الذكية",
+    title: `بلاغ صيانة ${id} | أبراج`,
+    description: `تفاصيل بلاغ الصيانة ${id} وحالة التنفيذ الميداني`,
   };
 }
 
-export default async function MaintenanceDetailPage({
-  params,
-}: MaintenancePageProps) {
-  const { id } = await params;
-  const task =
-    initialTasks.find((t) => t.id === id) ||
-    initialTasks.find((t) => t.id === "CL-10482") ||
-    initialTasks[0];
-
-  if (!task) {
-    notFound();
-  }
-
-  return <CleaningDetailsView task={task} />;
+export default function MaintenanceIdPage() {
+  return <MaintenanceDetailsView />;
 }

@@ -124,36 +124,41 @@ src/
 │           ├── page.tsx          # Units Overview (Node 1:4313)
 │           └── new/
 │               └── page.tsx      # Add Unit Screen (Node 1:4685)
+│       └── maintenance/
+│           ├── page.tsx          # Maintenance Details (Node 1:11576)
+│           ├── [id]/             # Maintenance Dynamic Report
+│           ├── new/              # Create Maintenance Report (Node 1:12008)
+│           └── logs/             # Operations Log (Node 1:12570)
 ├── components/
 │   ├── layout/
 │   └── ui/
 ├── features/
 │   ├── dashboard/
 │   ├── properties/
-│   └── units/
-│       ├── actions/
-│       │   └── add-unit-action.ts
+│   ├── units/
+│   └── maintenance/
 │       ├── components/
-│       │   ├── units-view.tsx
-│       │   ├── units-hero-bar.tsx
-│       │   ├── units-filter-bar.tsx
-│       │   ├── units-table.tsx
-│       │   ├── unit-actions-menu.tsx   # Action Popover (Node 1:5804)
-│       │   ├── add-unit-view.tsx
-│       │   ├── add-unit-hero-bar.tsx
-│       │   ├── property-context-banner.tsx
-│       │   ├── add-unit-form.tsx
-│       │   ├── unit-primary-specs.tsx
-│       │   ├── unit-description-amenities.tsx
-│       │   ├── unit-gallery-upload.tsx
-│       │   ├── unit-pricing-capacity.tsx
-│       │   ├── unit-access-code.tsx
-│       │   └── add-unit-sticky-bar.tsx
+│       │   ├── maintenance-details-view.tsx  # Node 1:11576
+│       │   ├── create-maintenance-view.tsx   # Node 1:12008
+│       │   ├── start-maintenance-modal.tsx   # Node 1:12453
+│       │   └── operations-log-view.tsx       # Node 1:12570
 │       ├── data/
-│       │   └── units-data.ts
-│       ├── schemas/
-│       │   └── add-unit-schema.ts
+│       │   └── maintenance-mock-data.ts
 │       └── types/
-│           └── unit.ts
+│           └── maintenance.ts
 └── lib/
 ```
+
+---
+
+## 8. Maintenance & Operations Architecture Rules
+
+1. **Figma Screen Mappings:**
+   - `1:11576` (تفاصيل بلاغ صيانة): Asymmetric 8-col / 4-col layout detailing asset data, field diagnostics, turnover impact, system governance, and timeline milestones.
+   - `1:12008` (إنشاء بلاغ صيانة جديد): Structured multi-section form with 3-tier cascade selector (Owner → Property → Unit), SLA priority selector, and media upload.
+   - `1:12453` (بدء تنفيذ الصيانة): Governance modal with accent bar, context summary, SLA timestamp tracking, and official activity registry entry.
+   - `1:12570` (سجل التشغيل): Continuous architectural timeline spine, category tab filtering, search toolbar, and high-density KPI metrics strip.
+2. **Width & Side Spacing Standard:**
+   - Standard outer wrapper: `className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"`
+3. **Status Pill Constraint ("قد الكلمة فقط"):**
+   - All status pills wrap tightly around text: `inline-flex items-center gap-[6px] w-fit whitespace-nowrap px-[11px] py-[4px] rounded-full`.
