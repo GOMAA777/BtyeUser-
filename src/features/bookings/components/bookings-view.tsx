@@ -67,7 +67,10 @@ export function BookingsView() {
   };
 
   return (
-    <div className="flex flex-col gap-6 w-full max-w-[1280px] mx-auto pb-12" dir="rtl">
+    <div
+      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"
+      dir="rtl"
+    >
       {/* 1. TOP HERO GREETING BAR */}
       <BookingsHeroBar
         activeCount={counts.current + counts.upcoming}

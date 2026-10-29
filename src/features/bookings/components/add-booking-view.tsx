@@ -128,7 +128,11 @@ export function AddBookingView() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full max-w-[1280px] mx-auto pb-32" dir="rtl">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full pb-32"
+      dir="rtl"
+    >
       {/* 1. TOP HERO GREETING BAR */}
       <div
         className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] rounded-[16px] p-6 lg:px-[32px] lg:py-[24px] flex flex-col md:flex-row md:items-center justify-between gap-4 w-full"
@@ -575,12 +579,12 @@ export function AddBookingView() {
 
       {/* 4. Bottom Sticky Action Area */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#e5e8e2] px-6 py-4 shadow-[0px_-4px_16px_rgba(0,0,0,0.06)]"
+        className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#e5e8e2] px-6 lg:px-[32px] py-4 shadow-[0px_-4px_16px_rgba(0,0,0,0.06)]"
         data-node-id="1:6343"
         data-name="Bottom Sticky Action Area"
         dir="rtl"
       >
-        <div className="max-w-[1280px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3">
           <p
             className="font-cairo text-[12px] text-[#75786f] text-center sm:text-right"
             data-node-id="1:6356"

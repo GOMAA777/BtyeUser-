@@ -124,7 +124,7 @@ export function BookingDetailsView({ booking: initialBooking }: BookingDetailsVi
 
   return (
     <div
-      className="flex flex-col gap-6 w-full max-w-[1280px] mx-auto pb-16"
+      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full pb-16"
       data-node-id="1:6993"
       data-name="تفاصيل الحجز"
       dir="rtl"

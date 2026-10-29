@@ -26,39 +26,39 @@ export function BookingsTable({
     switch (status) {
       case "current":
         return (
-          <div className="bg-[rgba(62,138,90,0.1)] flex items-center gap-[6px] px-[10px] py-[3px] rounded-full shrink-0">
+          <span className="inline-flex items-center gap-[6px] w-fit bg-[rgba(62,138,90,0.1)] border border-[rgba(62,138,90,0.2)] px-[11px] py-[4px] rounded-full whitespace-nowrap">
+            <span className="size-[6px] rounded-full bg-[#3e8a5a] shrink-0" />
             <span className="font-cairo font-semibold text-[#3e8a5a] text-[11px] leading-[16px]">
               {label}
             </span>
-            <div className="size-[6px] rounded-full bg-[#3e8a5a]" />
-          </div>
+          </span>
         );
       case "upcoming":
         return (
-          <div className="bg-[rgba(59,130,246,0.1)] flex items-center gap-[6px] px-[10px] py-[3px] rounded-full shrink-0">
+          <span className="inline-flex items-center gap-[6px] w-fit bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.2)] px-[11px] py-[4px] rounded-full whitespace-nowrap">
+            <span className="size-[6px] rounded-full bg-[#2563eb] shrink-0" />
             <span className="font-cairo font-semibold text-[#2563eb] text-[11px] leading-[16px]">
               {label}
             </span>
-            <div className="size-[6px] rounded-full bg-[#2563eb]" />
-          </div>
+          </span>
         );
       case "completed":
         return (
-          <div className="bg-[#f1f2ed] flex items-center gap-[6px] px-[10px] py-[3px] rounded-full shrink-0">
+          <span className="inline-flex items-center gap-[6px] w-fit bg-[#f1f2ed] border border-[#e5e8e2] px-[11px] py-[4px] rounded-full whitespace-nowrap">
+            <span className="size-[6px] rounded-full bg-[#73786f] shrink-0" />
             <span className="font-cairo font-semibold text-[#73786f] text-[11px] leading-[16px]">
               {label}
             </span>
-            <div className="size-[6px] rounded-full bg-[#73786f]" />
-          </div>
+          </span>
         );
       case "cancelled":
         return (
-          <div className="bg-[rgba(177,37,21,0.1)] flex items-center gap-[6px] px-[10px] py-[3px] rounded-full shrink-0">
+          <span className="inline-flex items-center gap-[6px] w-fit bg-[rgba(177,37,21,0.1)] border border-[rgba(177,37,21,0.2)] px-[11px] py-[4px] rounded-full whitespace-nowrap">
+            <span className="size-[6px] rounded-full bg-[#b12515] shrink-0" />
             <span className="font-cairo font-semibold text-[#b12515] text-[11px] leading-[16px]">
               {label}
             </span>
-            <div className="size-[6px] rounded-full bg-[#b12515]" />
-          </div>
+          </span>
         );
       default:
         return null;
@@ -192,7 +192,7 @@ export function BookingsTable({
                     </td>
 
                     {/* الحالة */}
-                    <td className="py-[16px] px-[20px]">
+                    <td className="py-[16px] px-[20px] whitespace-nowrap">
                       {getStatusBadge(booking.status, booking.statusLabel)}
                     </td>
 
