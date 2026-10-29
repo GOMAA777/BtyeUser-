@@ -7,7 +7,7 @@ import { AddUnitForm } from "./add-unit-form";
 export function AddUnitView() {
   return (
     <div
-      className="w-full min-h-full bg-[#f1f5eb] p-[20px] lg:p-[32px] flex flex-col gap-[20px] lg:gap-[24px] max-w-[1400px] mx-auto"
+      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"
       data-node-id="1:2381"
       data-name="Main"
     >
