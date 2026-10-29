@@ -53,8 +53,8 @@ export function AddUnitForm() {
     try {
       const result = await addUnitAction(data);
       if (result.success) {
-        showToast.success(`تمت إضافة الوحدة بنجاح (${data.unitNumber})`);
-        router.push("/properties");
+        showToast.success(`تمت إضافة الوحدة بنجاح (${data.unitNumber}) - اكتمل إعداد العقار`);
+        router.push("/properties/ready");
       } else {
         showToast.error(result.error || "حدث خطأ أثناء إضافة الوحدة");
       }
@@ -96,3 +96,4 @@ export function AddUnitForm() {
     </form>
   );
 }
+

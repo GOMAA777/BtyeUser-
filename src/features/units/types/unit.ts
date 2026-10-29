@@ -12,3 +12,4 @@ export interface UnitTypeOption {
   subtitle: string;
   iconPath: string;
 }
+
