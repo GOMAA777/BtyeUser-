@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { PropertiesHeroBar } from "./properties-hero-bar";
 import { PropertiesFilterBar, PropertyStatusFilter } from "./properties-filter-bar";
 import { PropertyGridCard } from "./property-grid-card";
 import { PropertyHelperBanner } from "./property-helper-banner";
 import { PropertiesEmptyState } from "./properties-empty-state";
+import { ArchivePropertyModal } from "./archive-property-modal";
 import { initialProperties } from "../data/properties-data";
 import { PropertyItem } from "../types";
 import { Building2 } from "lucide-react";
@@ -17,6 +18,17 @@ export function PropertiesView() {
   const [properties, setProperties] = useState<PropertyItem[]>(initialProperties);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<PropertyStatusFilter>("all");
+  const [propertyToArchive, setPropertyToArchive] = useState<PropertyItem | null>(null);
+
+  // Auto-open modal if URL has ?archiveModal=true for easy design inspection
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("archiveModal") === "true") {
+        setPropertyToArchive(properties[0] || initialProperties[0]);
+      }
+    }
+  }, [properties]);
 
   // Computed counts
   const totalCount = properties.length;
@@ -46,14 +58,20 @@ export function PropertiesView() {
     });
   }, [properties, statusFilter, searchQuery]);
 
-  // Handle Archive Action
-  const handleArchive = (propertyToArchive: PropertyItem) => {
+  // Handle Archive Action - opens confirmation modal (Figma Node 1:4252)
+  const handleArchive = (target: PropertyItem) => {
+    setPropertyToArchive(target);
+  };
+
+  const handleConfirmArchive = () => {
+    if (!propertyToArchive) return;
     setProperties((prev) =>
       prev.map((p) =>
         p.id === propertyToArchive.id ? { ...p, status: "inactive", statusText: "غير نشط" } : p
       )
     );
-    showToast.success(`تم نقل ${propertyToArchive.name} إلى قائمة غير النشط.`);
+    showToast.success(`تم نقل ${propertyToArchive.name} إلى قسم العقارات المؤرشفة بنجاح.`);
+    setPropertyToArchive(null);
   };
 
   // Handle Add Property
@@ -139,6 +157,20 @@ export function PropertiesView() {
 
       {/* 4. Quick Helper / Integration Banner */}
       <PropertyHelperBanner />
+
+      {/* 5. Archive Property Confirmation Modal (Figma Nodes 1:4251 & 1:4252) */}
+      <ArchivePropertyModal
+        isOpen={!!propertyToArchive}
+        onClose={() => setPropertyToArchive(null)}
+        onConfirm={handleConfirmArchive}
+        propertyName={propertyToArchive?.name || "عمارة النخيل"}
+        propertyCode={propertyToArchive?.id === "prop-yasmin-villa" ? "RWQ-NKH-01" : "RWQ-NKH-01"}
+        propertyLocation={
+          propertyToArchive
+            ? `${propertyToArchive.city}، ${propertyToArchive.district}`
+            : "الرياض، حي الياسمين"
+        }
+      />
     </div>
   );
 }
