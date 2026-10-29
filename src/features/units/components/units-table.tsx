@@ -42,7 +42,7 @@ export function UnitsTable({
   const handleView = (unit: UnitItem) => {
     setActiveMenuUnitId(null);
     showToast.success(`عرض تفاصيل: ${unit.unitNumber}`);
-    router.push("/properties/details");
+    router.push(`/units/${unit.id}`);
   };
 
   const handleEdit = (unit: UnitItem) => {
@@ -67,39 +67,39 @@ export function UnitsTable({
     switch (status) {
       case "booked":
         return (
-          <div className="bg-[#e3f2fd] border border-[rgba(187,222,251,0.6)] px-[11px] py-[5px] rounded-full flex items-center gap-[6px] shrink-0">
+          <span className="inline-flex items-center gap-[6px] w-fit bg-[#e3f2fd] border border-[rgba(187,222,251,0.6)] px-[11px] py-[4px] rounded-full whitespace-nowrap">
+            <span className="bg-[#1976d2] size-[6px] rounded-full shrink-0" />
             <span className="font-cairo font-semibold text-[#1976d2] text-[12px] leading-[16px]">
               محجوزة
             </span>
-            <div className="bg-[#1976d2] size-[6px] rounded-full shrink-0" />
-          </div>
+          </span>
         );
       case "available":
         return (
-          <div className="bg-[#e8f5e9] border border-[#c8e6c9] px-[11px] py-[5px] rounded-full flex items-center gap-[6px] shrink-0">
+          <span className="inline-flex items-center gap-[6px] w-fit bg-[#e8f5e9] border border-[#c8e6c9] px-[11px] py-[4px] rounded-full whitespace-nowrap">
+            <span className="bg-[#2e7d32] size-[6px] rounded-full shrink-0" />
             <span className="font-cairo font-bold text-[#2e7d32] text-[12px] leading-[16px]">
               متاحة
             </span>
-            <div className="bg-[#2e7d32] size-[6px] rounded-full shrink-0" />
-          </div>
+          </span>
         );
       case "cleaning":
         return (
-          <div className="bg-[#fef3c7] border border-[#fde68a] px-[11px] py-[5px] rounded-full flex items-center gap-[6px] shrink-0">
+          <span className="inline-flex items-center gap-[6px] w-fit bg-[#fef3c7] border border-[#fde68a] px-[11px] py-[4px] rounded-full whitespace-nowrap">
+            <span className="bg-[#d97706] size-[6px] rounded-full shrink-0" />
             <span className="font-cairo font-bold text-[#d97706] text-[12px] leading-[16px]">
               تحت التنظيف
             </span>
-            <div className="bg-[#d97706] size-[6px] rounded-full shrink-0" />
-          </div>
+          </span>
         );
       case "maintenance":
         return (
-          <div className="bg-[#fee2e2] border border-[#fecaca] px-[11px] py-[5px] rounded-full flex items-center gap-[6px] shrink-0">
+          <span className="inline-flex items-center gap-[6px] w-fit bg-[#fee2e2] border border-[#fecaca] px-[11px] py-[4px] rounded-full whitespace-nowrap">
+            <span className="bg-[#dc2626] size-[6px] rounded-full shrink-0" />
             <span className="font-cairo font-bold text-[#dc2626] text-[12px] leading-[16px]">
               تحت الصيانة
             </span>
-            <div className="bg-[#dc2626] size-[6px] rounded-full shrink-0" />
-          </div>
+          </span>
         );
       default:
         return null;
@@ -258,7 +258,7 @@ export function UnitsTable({
                   </td>
 
                   {/* 7. الحالة */}
-                  <td className="px-[24px] py-[12px]">
+                  <td className="px-[24px] py-[12px] whitespace-nowrap">
                     {renderStatusBadge(unit.status)}
                   </td>
 

@@ -54,9 +54,9 @@ export function AddUnitForm() {
       const result = await addUnitAction(data);
       if (result.success) {
         showToast.success(
-          `تمت إضافة الوحدة بنجاح (${data.unitNumber}) - اكتمل إعداد العقار`
+          `تمت إضافة الوحدة بنجاح (${data.unitNumber}) - جاهزة للتأجير الفوري`
         );
-        router.push("/units");
+        router.push("/units/ready");
       } else {
         showToast.error(result.error || "حدث خطأ أثناء إضافة الوحدة");
       }
