@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MoreHorizontal } from "lucide-react";
 import { BookingItem } from "../types/booking";
 import { BookingActionsMenu } from "./booking-actions-menu";
+import { CancelBookingModal } from "./cancel-booking-modal";
 
 interface BookingsTableProps {
   bookings: BookingItem[];
@@ -18,6 +19,7 @@ export function BookingsTable({
   onBookingCancel,
 }: BookingsTableProps) {
   const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
+  const [cancelBookingItem, setCancelBookingItem] = useState<BookingItem | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   const getStatusBadge = (status: BookingItem["status"], label: string) => {
@@ -213,7 +215,10 @@ export function BookingsTable({
                           bookingId={booking.id}
                           isOpen={isMenuOpen}
                           onClose={() => setActiveMenuId(null)}
-                          onCancelBooking={() => onBookingCancel?.(booking.id)}
+                          onCancelBooking={() => {
+                            setActiveMenuId(null);
+                            setCancelBookingItem(booking);
+                          }}
                           position="bottom-left"
                         />
                       </div>
@@ -281,6 +286,21 @@ export function BookingsTable({
           </button>
         </div>
       </div>
+
+      {cancelBookingItem && (
+        <CancelBookingModal
+          isOpen={!!cancelBookingItem}
+          onClose={() => setCancelBookingItem(null)}
+          bookingReference={cancelBookingItem.reference}
+          guestName={cancelBookingItem.guest.name}
+          stayPeriod={`${cancelBookingItem.checkIn.date} - ${cancelBookingItem.checkOut.date}`}
+          unitName={`${cancelBookingItem.unit.name} (${cancelBookingItem.unit.type})`}
+          onConfirmCancel={() => {
+            onBookingCancel?.(cancelBookingItem.id);
+            setCancelBookingItem(null);
+          }}
+        />
+      )}
     </div>
   );
 }

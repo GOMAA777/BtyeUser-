@@ -30,15 +30,24 @@ import {
 } from "lucide-react";
 import { BookingItem } from "../types/booking";
 import { showToast } from "@/lib/toast";
+import { ExtendStayModal } from "./extend-stay-modal";
+import { ChangeUnitModal } from "./change-unit-modal";
+import { CancelBookingModal } from "./cancel-booking-modal";
 
 interface BookingDetailsViewProps {
   booking: BookingItem;
 }
 
-export function BookingDetailsView({ booking }: BookingDetailsViewProps) {
+export function BookingDetailsView({ booking: initialBooking }: BookingDetailsViewProps) {
+  const [booking, setBooking] = useState<BookingItem>(initialBooking);
   const [showAccessCode, setShowAccessCode] = useState(false);
   const [copiedRef, setCopiedRef] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
+
+  // Modals state
+  const [isExtendOpen, setIsExtendOpen] = useState(false);
+  const [isChangeUnitOpen, setIsChangeUnitOpen] = useState(false);
+  const [isCancelOpen, setIsCancelOpen] = useState(false);
 
   const handleCopyRef = () => {
     navigator.clipboard.writeText(booking.reference);
@@ -59,11 +68,58 @@ export function BookingDetailsView({ booking }: BookingDetailsViewProps) {
   };
 
   const handleExtendStay = () => {
-    showToast.info("تمديد الإقامة", "تم فتح نموذج تمديد الإقامة");
+    setIsExtendOpen(true);
   };
 
   const handleCancelBooking = () => {
-    showToast.error("تم طلب إلغاء الحجز");
+    setIsCancelOpen(true);
+  };
+
+  const handleConfirmExtend = (newCheckoutDate: string, addedNights: number, addedCost: number) => {
+    setBooking((prev) => ({
+      ...prev,
+      checkOut: {
+        ...prev.checkOut,
+        date: "02 سبتمبر 2026",
+        formatted: "02 سبتمبر 2026",
+      },
+      nights: prev.nights + addedNights,
+      payment: {
+        ...prev.payment,
+        nights: prev.payment.nights + addedNights,
+        total: prev.payment.total + addedCost,
+        remaining: prev.payment.remaining + addedCost,
+      },
+    }));
+  };
+
+  const handleConfirmChangeUnit = (unitId: string, unitName: string, price: number) => {
+    setBooking((prev) => ({
+      ...prev,
+      unit: {
+        ...prev.unit,
+        id: unitId,
+        name: unitName,
+        dailyPrice: price,
+      },
+      accessCode: {
+        ...prev.accessCode,
+        code: "691048",
+      },
+    }));
+  };
+
+  const handleConfirmCancel = () => {
+    setBooking((prev) => ({
+      ...prev,
+      status: "cancelled",
+      statusLabel: "ملغى",
+      accessCode: {
+        ...prev.accessCode,
+        status: "expired",
+        statusLabel: "تم إلغاء الكود",
+      },
+    }));
   };
 
   return (
@@ -497,6 +553,39 @@ export function BookingDetailsView({ booking }: BookingDetailsViewProps) {
           </div>
         </div>
       </div>
+
+      {/* 3. MODALS */}
+      <ExtendStayModal
+        isOpen={isExtendOpen}
+        onClose={() => setIsExtendOpen(false)}
+        bookingReference={booking.reference}
+        guestName={booking.guest.name}
+        guestPhone={booking.guest.phone}
+        unitName={booking.unit.name}
+        unitType={booking.unit.type}
+        currentCheckout={`${booking.checkOut.date} — ${booking.checkOut.time} (${booking.nights} ليالٍ)`}
+        dailyPrice={booking.unit.dailyPrice}
+        accessCode={booking.accessCode.code}
+        onOpenChangeUnit={() => setIsChangeUnitOpen(true)}
+        onConfirmSuccess={handleConfirmExtend}
+      />
+
+      <ChangeUnitModal
+        isOpen={isChangeUnitOpen}
+        onClose={() => setIsChangeUnitOpen(false)}
+        currentUnitName={booking.unit.name}
+        onSelectUnit={handleConfirmChangeUnit}
+      />
+
+      <CancelBookingModal
+        isOpen={isCancelOpen}
+        onClose={() => setIsCancelOpen(false)}
+        bookingReference={booking.reference}
+        guestName={booking.guest.name}
+        stayPeriod={`${booking.checkIn.date} - ${booking.checkOut.date}`}
+        unitName={`${booking.unit.name} (${booking.unit.type})`}
+        onConfirmCancel={handleConfirmCancel}
+      />
     </div>
   );
 }
