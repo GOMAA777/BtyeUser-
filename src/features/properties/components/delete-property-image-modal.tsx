@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 
 export interface DeletePropertyImageModalProps {
@@ -32,6 +33,12 @@ export function DeletePropertyImageModal({
   cancelButtonText = "إلغاء",
   isDeleting = false,
 }: DeletePropertyImageModalProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Handle escape key
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -45,33 +52,36 @@ export function DeletePropertyImageModal({
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("keydown", handleKeyDown);
+      const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+        document.body.style.overflow = originalOverflow;
+      };
     }
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "unset";
-    };
   }, [isOpen, handleKeyDown]);
 
-  if (!isOpen) return null;
+  if (!mounted || !isOpen) return null;
 
-  return (
+  // Render via React Portal to document.body to guarantee the overlay covers
+  // the entire viewport (Sidebar, Header, Main content, and all root layout elements)
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
       aria-labelledby="delete-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 w-screen h-screen"
       data-node-id="1:3899"
       data-name="DeletePropertyImageModalBackdrop"
     >
-      {/* Dimmed Backdrop Overlay (Figma Node 1:3899 / Rectangle 104) */}
+      {/* Full-Screen Dimmed Backdrop Overlay (Figma Node 1:3899 / Rectangle 104) */}
       <div
-        className="fixed inset-0 bg-black/40 transition-opacity animate-in fade-in duration-200"
+        className="fixed inset-0 w-full h-full bg-black/40 backdrop-blur-[1px] transition-opacity animate-in fade-in duration-200"
         onClick={() => !isDeleting && onClose()}
         aria-hidden="true"
       />
 
-      {/* Confirmation Modal Card (Figma Node 1:3900) */}
+      {/* Confirmation Modal Card (Figma Node 1:3900) - Centered on whole screen */}
       <div
         dir="ltr"
         className="relative z-10 w-full max-w-[480px] bg-white rounded-[16px] border border-[#e5e8e2] p-[29px] flex flex-col gap-[20px] shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)] animate-in fade-in zoom-in-95 duration-200 overflow-hidden"
@@ -341,6 +351,7 @@ export function DeletePropertyImageModal({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
