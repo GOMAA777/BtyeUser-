@@ -125,10 +125,10 @@ export function DashboardSidebar() {
           {/* Circular Emblem Badge with Gold Accent */}
           <div className="relative shrink-0 size-[42px] rounded-full bg-[#252E22] border border-[rgba(201,185,154,0.35)] flex items-center justify-center overflow-hidden shadow-sm">
             <Image
-              src="/assets/dashboard/c2e0b353e7c8e6e66d761477794c851feec5dc7c.png"
+              src="/assets/brand/logo.png"
               alt="ابراج Logo"
-              width={26}
-              height={26}
+              width={28}
+              height={28}
               priority
               className="object-contain"
             />

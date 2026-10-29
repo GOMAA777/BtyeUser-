@@ -37,10 +37,11 @@ export function RegisterBrandSide() {
           >
             <div className="relative size-[36px]" data-node-id="1:17607">
               <Image
-                src="/assets/auth/logo_abraj.png"
+                src="/assets/brand/logo.png"
                 alt="شعار أبراج"
-                width={36}
-                height={36}
+                width={38}
+                height={38}
+                priority
                 className="size-full object-contain"
               />
             </div>

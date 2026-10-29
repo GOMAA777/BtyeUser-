@@ -13,6 +13,11 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   title: "أبراج | المنظومة المؤسسية لإدارة وتشغيل الأصول العقارية",
   description: "المنظومة المتكاملة لإدارة الأصول والوحدات الفندقية والسكنية بالمملكة",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

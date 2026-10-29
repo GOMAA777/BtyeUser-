@@ -16,10 +16,10 @@ export default function Loading() {
           {/* Central Logo Container */}
           <div className="relative size-20 rounded-full bg-[#252E22] border-2 border-[rgba(201,185,154,0.45)] flex items-center justify-center shadow-md">
             <Image
-              src="/assets/dashboard/c2e0b353e7c8e6e66d761477794c851feec5dc7c.png"
+              src="/assets/brand/logo.png"
               alt="أبراج"
-              width={42}
-              height={42}
+              width={46}
+              height={46}
               priority
               className="object-contain animate-pulse"
             />
