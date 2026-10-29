@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import { PropertiesHeroBar } from "./properties-hero-bar";
 import { PropertiesFilterBar, PropertyStatusFilter } from "./properties-filter-bar";
 import { PropertyGridCard } from "./property-grid-card";
@@ -12,6 +13,7 @@ import { Building2 } from "lucide-react";
 import { showToast } from "@/lib/toast";
 
 export function PropertiesView() {
+  const router = useRouter();
   const [properties, setProperties] = useState<PropertyItem[]>(initialProperties);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<PropertyStatusFilter>("all");
@@ -56,12 +58,7 @@ export function PropertiesView() {
 
   // Handle Add Property
   const handleAddProperty = () => {
-    if (properties.length === 0) {
-      setProperties(initialProperties);
-      showToast.success("تمت استعادة العقارات التجريبية بنجاح.");
-    } else {
-      showToast.info("إضافة عقار جديد", "جاري فتح نموذج إضافة عقار جديد إلى المنظومة.");
-    }
+    router.push("/properties/new");
   };
 
   // 1. If total properties is 0, render pure Empty State layout (Figma Node 1:1887)

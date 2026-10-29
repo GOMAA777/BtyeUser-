@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { showToast } from "@/lib/toast";
 
 interface PropertiesEmptyStateProps {
@@ -75,29 +76,54 @@ export function PropertiesEmptyState({ onAddProperty }: PropertiesEmptyStateProp
       </div>
 
       {/* 4. Primary CTA Button */}
-      <button
-        type="button"
-        onClick={handleAdd}
-        className="bg-[#4b5940] hover:bg-[#34422a] active:scale-[0.98] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] rounded-[12px] px-[32px] py-[14px] flex items-center justify-center gap-[10px] text-white transition-all cursor-pointer shadow-xs"
-        data-node-id="1:1921"
-        data-name="Primary CTA Button"
-      >
-        <span
-          className="font-cairo font-semibold text-[16px] leading-[24px] text-center text-white"
-          data-node-id="1:1923"
+      {onAddProperty ? (
+        <button
+          type="button"
+          onClick={handleAdd}
+          className="bg-[#4b5940] hover:bg-[#34422a] active:scale-[0.98] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] rounded-[12px] px-[32px] py-[14px] flex items-center justify-center gap-[10px] text-white transition-all cursor-pointer shadow-xs"
+          data-node-id="1:1921"
+          data-name="Primary CTA Button"
         >
-          إضافة عقار
-        </span>
-        <div className="relative size-[20px] shrink-0" data-node-id="1:1924">
-          <Image
-            src="/assets/properties/empty-state-plus.svg"
-            alt="إضافة"
-            width={20}
-            height={20}
-            className="size-full object-contain"
-          />
-        </div>
-      </button>
+          <span
+            className="font-cairo font-semibold text-[16px] leading-[24px] text-center text-white"
+            data-node-id="1:1923"
+          >
+            إضافة عقار
+          </span>
+          <div className="relative size-[20px] shrink-0" data-node-id="1:1924">
+            <Image
+              src="/assets/properties/empty-state-plus.svg"
+              alt="إضافة"
+              width={20}
+              height={20}
+              className="size-full object-contain"
+            />
+          </div>
+        </button>
+      ) : (
+        <Link
+          href="/properties/new"
+          className="bg-[#4b5940] hover:bg-[#34422a] active:scale-[0.98] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] rounded-[12px] px-[32px] py-[14px] flex items-center justify-center gap-[10px] text-white transition-all cursor-pointer shadow-xs"
+          data-node-id="1:1921"
+          data-name="Primary CTA Button"
+        >
+          <span
+            className="font-cairo font-semibold text-[16px] leading-[24px] text-center text-white"
+            data-node-id="1:1923"
+          >
+            إضافة عقار
+          </span>
+          <div className="relative size-[20px] shrink-0" data-node-id="1:1924">
+            <Image
+              src="/assets/properties/empty-state-plus.svg"
+              alt="إضافة"
+              width={20}
+              height={20}
+              className="size-full object-contain"
+            />
+          </div>
+        </Link>
+      )}
     </div>
   );
 }

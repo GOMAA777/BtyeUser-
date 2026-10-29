@@ -46,24 +46,44 @@ export function PropertiesHeroBar({ onAddProperty }: PropertiesHeroBarProps) {
         data-name="Quick Action Buttons"
       >
         {/* Add Property Button */}
-        <button
-          type="button"
-          onClick={handleAdd}
-          className="bg-[#34422a] hover:bg-[#273220] active:scale-[0.98] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex items-center gap-[6px] px-[16px] py-[10px] rounded-[12px] text-white font-cairo font-semibold text-[12px] leading-[18px] transition-all cursor-pointer"
-          data-node-id="1:1583"
-          data-name="Button"
-        >
-          <div className="relative shrink-0 size-[15px]" data-node-id="1:1586">
-            <Image
-              src="/assets/properties/plus-circle.svg"
-              alt="إضافة عقار"
-              width={15}
-              height={15}
-              className="size-full object-contain"
-            />
-          </div>
-          <span data-node-id="1:1585">إضافة عقار</span>
-        </button>
+        {onAddProperty ? (
+          <button
+            type="button"
+            onClick={handleAdd}
+            className="bg-[#34422a] hover:bg-[#273220] active:scale-[0.98] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex items-center gap-[6px] px-[16px] py-[10px] rounded-[12px] text-white font-cairo font-semibold text-[12px] leading-[18px] transition-all cursor-pointer"
+            data-node-id="1:1583"
+            data-name="Button"
+          >
+            <div className="relative shrink-0 size-[15px]" data-node-id="1:1586">
+              <Image
+                src="/assets/properties/plus-circle.svg"
+                alt="إضافة عقار"
+                width={15}
+                height={15}
+                className="size-full object-contain"
+              />
+            </div>
+            <span data-node-id="1:1585">إضافة عقار</span>
+          </button>
+        ) : (
+          <Link
+            href="/properties/new"
+            className="bg-[#34422a] hover:bg-[#273220] active:scale-[0.98] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex items-center gap-[6px] px-[16px] py-[10px] rounded-[12px] text-white font-cairo font-semibold text-[12px] leading-[18px] transition-all cursor-pointer"
+            data-node-id="1:1583"
+            data-name="Button"
+          >
+            <div className="relative shrink-0 size-[15px]" data-node-id="1:1586">
+              <Image
+                src="/assets/properties/plus-circle.svg"
+                alt="إضافة عقار"
+                width={15}
+                height={15}
+                className="size-full object-contain"
+              />
+            </div>
+            <span data-node-id="1:1585">إضافة عقار</span>
+          </Link>
+        )}
 
         {/* Import Booking/Airbnb Button */}
         <Link
