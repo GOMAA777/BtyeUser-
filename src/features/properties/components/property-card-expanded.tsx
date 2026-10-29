@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ImportedProperty, PropertyUnit } from "../types";
+import { ImportedProperty } from "../types";
 
 interface PropertyCardExpandedProps {
   property: ImportedProperty;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { PropertiesHeroBar } from "./properties-hero-bar";
 import { PropertiesFilterBar, PropertyStatusFilter } from "./properties-filter-bar";
@@ -18,17 +18,15 @@ export function PropertiesView() {
   const [properties, setProperties] = useState<PropertyItem[]>(initialProperties);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<PropertyStatusFilter>("all");
-  const [propertyToArchive, setPropertyToArchive] = useState<PropertyItem | null>(null);
-
-  // Auto-open modal if URL has ?archiveModal=true for easy design inspection
-  useEffect(() => {
+  const [propertyToArchive, setPropertyToArchive] = useState<PropertyItem | null>(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
       if (params.get("archiveModal") === "true") {
-        setPropertyToArchive(properties[0] || initialProperties[0]);
+        return initialProperties[0] || null;
       }
     }
-  }, [properties]);
+    return null;
+  });
 
   // Computed counts
   const totalCount = properties.length;
@@ -83,7 +81,7 @@ export function PropertiesView() {
   if (properties.length === 0) {
     return (
       <div
-        className="w-full min-h-full bg-[#f1f5eb] p-[20px] lg:p-[32px] flex flex-col gap-[16px] lg:gap-[20px] max-w-[1400px] mx-auto"
+        className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"
         data-name="Properties Empty State Page Container"
       >
         <PropertiesHeroBar onAddProperty={handleAddProperty} />
@@ -95,7 +93,7 @@ export function PropertiesView() {
   // 2. Default Properties List Layout (Figma Node 1:1578)
   return (
     <div
-      className="w-full min-h-full bg-[#f1f5eb] p-[20px] lg:p-[32px] flex flex-col gap-[16px] lg:gap-[20px] max-w-[1400px] mx-auto"
+      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"
       data-name="Properties Page Container"
     >
       {/* 1. Hero Greeting Bar */}

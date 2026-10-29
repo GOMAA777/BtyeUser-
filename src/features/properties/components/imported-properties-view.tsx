@@ -157,7 +157,7 @@ export function ImportedPropertiesView() {
   return (
     <div className="flex flex-col min-h-screen bg-[#F1F5EB] w-full" dir="rtl">
       {/* Scrollable Content Container */}
-      <div className="flex-1 flex flex-col gap-[24px] p-[20px] lg:p-[32px] max-w-[1560px] mx-auto w-full pb-[32px]">
+      <div className="flex-1 flex flex-col gap-[24px] p-[24px] lg:p-[32px] w-full pb-[32px]">
         {/* 1. Bento Header & Target Owner Banner */}
         <BentoTelemetryHeader />
 

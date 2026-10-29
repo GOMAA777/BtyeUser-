@@ -22,7 +22,7 @@ export function StickyActionBar({
       className="sticky bottom-0 z-30 backdrop-blur-[12px] bg-[rgba(255,255,255,0.95)] px-[20px] lg:px-[32px] py-[12px] shadow-[0px_-4px_24px_0px_rgba(0,0,0,0.06)] border-t border-[#E5EAE0]/80 w-full"
       data-name="Sticky Bottom Summary & Final Action Bar"
     >
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-[16px] max-w-[1560px] mx-auto w-full">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-[16px] w-full">
         {/* 1. Right Group (RTL Start): Selected Summary Badge + Estimated Time */}
         <div className="flex items-center gap-[16px] w-full sm:w-auto justify-between sm:justify-start">
           {/* Status Badge */}

@@ -8,7 +8,7 @@ import { PropertyReadyCard } from "./property-ready-card";
 export function PropertyReadyView() {
   return (
     <div
-      className="w-full min-h-full bg-[#f1f5eb] py-8 sm:py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center max-w-[1400px] mx-auto"
+      className="w-full min-h-screen bg-[#f1f5eb] py-8 sm:py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center"
       data-node-id="1:2819"
       data-name="Main"
     >
@@ -95,7 +95,7 @@ export function PropertyReadyView() {
 
           {/* Primary: عرض العقار */}
           <Link
-            href="/properties"
+            href="/properties/details"
             className="w-full sm:flex-1 bg-[#34422a] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] hover:bg-[#283420] active:scale-[0.98] transition-all duration-150 h-[50px] px-6 rounded-[12px] flex items-center justify-center gap-2 cursor-pointer shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1),0px_2px_4px_-2px_rgba(0,0,0,0.1)] text-white"
           >
             <div className="relative w-[13.3px] h-[10px] shrink-0">
