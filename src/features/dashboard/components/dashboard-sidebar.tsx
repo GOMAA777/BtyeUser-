@@ -49,7 +49,7 @@ const mainNavItems: NavItem[] = [
   },
   {
     label: "الحجوزات",
-    href: "#bookings",
+    href: "/bookings",
     icon: Calendar,
   },
   {
