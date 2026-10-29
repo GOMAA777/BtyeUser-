@@ -502,8 +502,13 @@ export function AddPropertyForm() {
 
         {/* Row 3: Full Width Interactive Location Section */}
         <AddPropertyLocationMap
+          city={selectedCity}
           addressLine1={`${currentStreet || "طريق أنس بن مالك"}، ${currentDistrict || "حي الياسمين"}`}
           addressLine2={`${selectedCity} 13326، المملكة العربية السعودية`}
+          onCoordinatesChange={(coords) => {
+            setValue("latitude", coords.lat);
+            setValue("longitude", coords.lng);
+          }}
         />
       </div>
 
