@@ -117,7 +117,7 @@ export function AddPropertyMediaUpload({ onImageChange }: AddPropertyMediaUpload
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onClick={() => fileInputRef.current?.click()}
-        className={`bg-[#f1f5eb] h-[346px] rounded-[16px] p-[24px] flex flex-col justify-between relative w-full cursor-pointer transition-all border-2 ${
+        className={`bg-[#f1f5eb] min-h-[346px] rounded-[16px] p-[24px] flex flex-col justify-between relative w-full cursor-pointer transition-all border-2 ${
           isDragging ? "border-[#34422a] bg-[#e8efe2]" : "border-transparent"
         }`}
         data-node-id="1:2155"
@@ -134,7 +134,7 @@ export function AddPropertyMediaUpload({ onImageChange }: AddPropertyMediaUpload
         {/* 1. Image Preview Snapshot */}
         {previewImage ? (
           <div
-            className="h-[176px] rounded-[12px] overflow-hidden relative shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] w-full shrink-0"
+            className="h-[176px] sm:h-[190px] rounded-[12px] overflow-hidden relative shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] w-full shrink-0"
             data-node-id="1:2171"
             data-name="Image preview snapshot mimicking architectural mockups"
           >

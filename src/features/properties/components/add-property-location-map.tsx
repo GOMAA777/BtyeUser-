@@ -91,7 +91,7 @@ export function AddPropertyLocationMap({
 
       {/* Styled Map Container */}
       <div
-        className="bg-[#eaf1e8] h-[320px] rounded-[16px] overflow-hidden relative shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] w-full border border-[#dfe4db]/50"
+        className="bg-[#eaf1e8] h-[320px] lg:h-[360px] rounded-[16px] overflow-hidden relative shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] w-full border border-[#dfe4db]/50"
         data-node-id="1:2207"
         data-name="Styled Map Container"
       >
