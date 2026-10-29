@@ -2,7 +2,8 @@ import { BookingSuccessView } from "@/features/bookings/components/booking-succe
 import { initialBookings } from "@/features/bookings/data/mock-bookings";
 
 export function generateStaticParams() {
-  return initialBookings.map((b) => ({ id: b.id }));
+  const ids = new Set(["[id]", "details", ...initialBookings.map((b) => b.id)]);
+  return Array.from(ids).map((id) => ({ id }));
 }
 
 interface BookingSuccessPageProps {

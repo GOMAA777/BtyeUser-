@@ -1,8 +1,29 @@
 import { Metadata } from "next";
 import { UnitDetailsView } from "@/features/units/components/unit-details-view";
+import { initialUnits } from "@/features/units/data/units-data";
 
 export function generateStaticParams() {
-  return [{ id: "1" }, { id: "101" }, { id: "204" }];
+  const ids = new Set([
+    "[id]",
+    "details",
+    "1",
+    "2",
+    "3",
+    "4",
+    "101",
+    "102",
+    "103",
+    "104",
+    "108",
+    "201",
+    "204",
+    "210",
+    "305",
+    "402",
+    ...initialUnits.map((u) => u.id),
+  ]);
+
+  return Array.from(ids).map((id) => ({ id }));
 }
 
 interface UnitPageProps {
@@ -13,9 +34,10 @@ export async function generateMetadata({
   params,
 }: UnitPageProps): Promise<Metadata> {
   const { id } = await params;
+  const displayId = id === "[id]" ? "101" : id;
   return {
-    title: `الوحدة ${id} | ابراج`,
-    description: `تفاصيل ومواصفات الوحدة ${id} وكود الدخول والجاهزية التشغيلية`,
+    title: `الوحدة ${displayId} | ابراج`,
+    description: `تفاصيل ومواصفات الوحدة ${displayId} وكود الدخول والجاهزية التشغيلية`,
   };
 }
 

@@ -3,6 +3,7 @@ import { PropertyDetailsView } from "@/features/properties/components/property-d
 
 export function generateStaticParams() {
   return [
+    { id: "[id]" },
     { id: "1" },
     { id: "RWQ-NKH-01" },
     { id: "details" },
@@ -17,3 +18,4 @@ export const metadata: Metadata = {
 export default function PropertyPage() {
   return <PropertyDetailsView />;
 }
+
