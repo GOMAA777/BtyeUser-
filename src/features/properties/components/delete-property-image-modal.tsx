@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useCallback, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 
@@ -33,11 +33,11 @@ export function DeletePropertyImageModal({
   cancelButtonText = "إلغاء",
   isDeleting = false,
 }: DeletePropertyImageModalProps) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
   // Handle escape key
   const handleKeyDown = useCallback(

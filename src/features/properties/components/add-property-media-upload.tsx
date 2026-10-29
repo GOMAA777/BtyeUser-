@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { showToast } from "@/lib/toast";
 import { DeletePropertyImageModal } from "./delete-property-image-modal";
@@ -14,18 +14,14 @@ export function AddPropertyMediaUpload({ onImageChange }: AddPropertyMediaUpload
     "/assets/properties/add/building-preview.png"
   );
   const [fileName, setFileName] = useState("villa-luxury-facade-render-01.jpg");
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(() => {
+    if (typeof window !== "undefined") {
+      return new URLSearchParams(window.location.search).get("deleteModal") === "true";
+    }
+    return false;
+  });
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get("deleteModal") === "true") {
-        setIsDeleteModalOpen(true);
-      }
-    }
-  }, []);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

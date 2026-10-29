@@ -108,8 +108,8 @@ export function AddPropertyForm() {
     try {
       const result = await addPropertyAction(data);
       if (result.success) {
-        showToast.success(`تم حفظ بيانات العقار بنجاح (${data.name})`);
-        router.push("/properties");
+        showToast.success(`تم حفظ بيانات العقار بنجاح (${data.name}) - جاري الانتقال للخطوة 2`);
+        router.push("/properties/new/unit");
       } else {
         showToast.error(result.error || "فشل حفظ بيانات العقار");
       }
