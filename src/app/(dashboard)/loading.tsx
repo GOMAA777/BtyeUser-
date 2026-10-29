@@ -1,7 +1,7 @@
 export default function DashboardLoading() {
   return (
     <div
-      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full animate-pulse select-none"
+      className="flex flex-col gap-[20px] w-full animate-pulse select-none"
       dir="rtl"
     >
       {/* 1. Hero Greeting Bar Skeleton */}

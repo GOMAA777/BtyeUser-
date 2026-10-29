@@ -16,8 +16,10 @@ export default function DashboardLayout({
         {/* 2. Main Content Area (Header fixed at top + scrollable body) */}
         <div className="flex flex-col flex-1 min-w-0 h-screen overflow-hidden">
           <DashboardHeader />
-          <main className="flex-1 overflow-y-auto custom-scrollbar">
-            {children}
+          <main className="flex-1 overflow-y-auto custom-scrollbar bg-[#f1f5eb]">
+            <div className="w-full max-w-[1280px] mx-auto px-[24px] sm:px-[32px] lg:px-[56px] py-[20px] min-h-full flex flex-col gap-[20px]">
+              {children}
+            </div>
           </main>
         </div>
       </div>

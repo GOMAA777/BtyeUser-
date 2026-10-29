@@ -16,7 +16,7 @@ export default function DashboardError({ error, reset }: DashboardErrorProps) {
 
   return (
     <div
-      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col items-center justify-center w-full font-cairo"
+      className="flex flex-col items-center justify-center w-full py-12 font-cairo"
       dir="rtl"
     >
       <div className="bg-white rounded-[20px] border border-[#dfe4db] p-8 sm:p-12 max-w-lg w-full text-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center">

@@ -1,11 +1,14 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-const designContextPath = "C:/Users/abdallah/.gemini/antigravity/brain/ce13718d-2d40-4054-95a5-9bef803b1405/.system_generated/steps/497/output.txt";
+const designContextPath =
+  "C:/Users/abdallah/.gemini/antigravity/brain/ce13718d-2d40-4054-95a5-9bef803b1405/.system_generated/steps/497/output.txt";
 const content = fs.readFileSync(designContextPath, "utf8");
 
-const matches = [...content.matchAll(/http:\/\/localhost:3845\/assets\/([a-zA-Z0-9_\-\.]+)/g)];
-const uniqueUrls = [...new Set(matches.map(m => m[0]))];
+const matches = [
+  ...content.matchAll(/http:\/\/localhost:3845\/assets\/([a-zA-Z0-9_\-\.]+)/g),
+];
+const uniqueUrls = [...new Set(matches.map((m) => m[0]))];
 console.log(`Found ${uniqueUrls.length} assets in node 1:3049.`);
 
 const targetDir = path.resolve("public/assets/properties/details");

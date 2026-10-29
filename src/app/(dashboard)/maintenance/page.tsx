@@ -1,11 +1,11 @@
 import { Metadata } from "next";
-import { MaintenanceDetailsView } from "@/features/maintenance/components/maintenance-details-view";
+import { MaintenanceView } from "@/features/maintenance/components/maintenance-view";
 
 export const metadata: Metadata = {
-  title: "تفاصيل بلاغ الصيانة MT-2048 | أبراج",
-  description: "متابعة أعمال الصيانة الميدانية، تشخيص الأعطال، والأثر التشغيلي على الوحدات والحجوزات",
+  title: "الصيانة والتنظيف | أبراج",
+  description: "متابعة كل عمليات التنظيف والصيانة وإدارة البلاغات على مستوى المنصة.",
 };
 
 export default function MaintenancePage() {
-  return <MaintenanceDetailsView />;
+  return <MaintenanceView />;
 }

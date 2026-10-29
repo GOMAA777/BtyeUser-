@@ -35,7 +35,7 @@ export function UnitLockErrorView() {
 
   return (
     <div
-      className="min-h-full w-full bg-[#f1f5eb] flex flex-col p-4 sm:p-6 lg:p-8 gap-6"
+      className="flex flex-col gap-[20px] w-full"
       data-node-id="1:22403"
       data-name="حالة فشل ربط القفل"
       dir="rtl"

@@ -120,3 +120,4 @@ export function PropertyDetailsLocation() {
     </div>
   );
 }
+

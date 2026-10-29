@@ -3,13 +3,7 @@ import { MaintenanceDetailsView } from "@/features/maintenance/components/mainte
 
 export function generateStaticParams() {
   return [
-    { id: "[id]" },
-    { id: "CL-10482" },
-    { id: "CL-10481" },
-    { id: "CL-10479" },
     { id: "MT-2048" },
-    { id: "MT-2047" },
-    { id: "MT-2045" },
     { id: "MT-2049" },
     { id: "details" },
   ];

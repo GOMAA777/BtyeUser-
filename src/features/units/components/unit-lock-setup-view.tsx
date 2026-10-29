@@ -29,7 +29,7 @@ export function UnitLockSetupView() {
 
   return (
     <div
-      className="min-h-full w-full bg-[#f1f5eb] flex flex-col p-4 sm:p-6 lg:p-8 gap-6 pb-24"
+      className="flex flex-col gap-[20px] w-full pb-24"
       data-node-id="1:22004"
       data-name="إعداد القفل الذكي"
       dir="rtl"
@@ -716,7 +716,7 @@ export function UnitLockSetupView() {
 
       {/* 3. STICKY / BOTTOM MASTER ACTIONS BAR */}
       <div
-        className="fixed bottom-4 left-4 right-4 sm:left-8 sm:right-8 z-30 backdrop-blur-md bg-white/95 p-4 rounded-[16px] shadow-lg border border-neutral-200/80 flex flex-col sm:flex-row items-center justify-between gap-4"
+        className="fixed bottom-4 left-4 right-4 sm:left-8 sm:right-8 z-30 backdrop-blur-md bg-white/95 p-4 rounded-[16px] shadow-lg border border-neutral-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[1280px] mx-auto"
         data-node-id="1:22263"
         data-name="Sticky / Bottom Master Actions Bar"
       >

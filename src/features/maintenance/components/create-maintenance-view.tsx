@@ -35,7 +35,7 @@ export function CreateMaintenanceView() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full pb-32"
+      className="flex flex-col gap-[20px] w-full pb-32"
       dir="rtl"
       data-node-id="1:12008"
       data-name="إنشاء بلاغ صيانة"
@@ -463,12 +463,12 @@ export function CreateMaintenanceView() {
 
       {/* 3. BOTTOM STICKY ACTION CONFIRMATION BAR */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#e5e8e2] px-6 lg:px-[32px] py-4 shadow-[0px_-4px_16px_rgba(0,0,0,0.06)]"
+        className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#e5e8e2] py-4 shadow-[0px_-4px_16px_rgba(0,0,0,0.06)]"
         data-node-id="1:12290"
         data-name="Action Confirmation Bar (Sticky on Desktop)"
         dir="rtl"
       >
-        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="w-full max-w-[1280px] mx-auto px-[24px] sm:px-[32px] lg:px-[56px] flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-cairo text-[12px] text-[#75786f] text-center sm:text-right">
             تأكد من صحة بيانات الوحدة؛ سيتم إيقاف تسكين الوحدة فور الضغط على تأكيد وإنشاء البلاغ.
           </p>
@@ -495,3 +495,4 @@ export function CreateMaintenanceView() {
     </form>
   );
 }
+

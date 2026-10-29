@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { BentoTelemetryHeader } from "./bento-telemetry-header";
 import { SummaryMetricStrip } from "./summary-metric-strip";
@@ -13,6 +14,7 @@ import { initialImportedProperties } from "../data/mock-properties";
 import { ImportedProperty } from "../types";
 
 export function ImportedPropertiesView() {
+  const router = useRouter();
   const [properties, setProperties] = useState<ImportedProperty[]>(initialImportedProperties);
   const [selectedCity, setSelectedCity] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -142,10 +144,12 @@ export function ImportedPropertiesView() {
     toast.success("تم بدء استيراد العقارات والوحدات المحددة بنجاح", {
       description: `تم جدولة ترحيل ${selectedPropertiesCount} عقار و ${totalUnitsSelected} وحدة للمزامنة المزدوجة.`,
     });
+    router.push("/properties");
   };
 
   const handleCancel = () => {
     toast.info("تم إلغاء عملية الاستيراد");
+    router.push("/properties/import");
   };
 
   const handleRescan = () => {
@@ -155,9 +159,7 @@ export function ImportedPropertiesView() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F1F5EB] w-full" dir="rtl">
-      {/* Scrollable Content Container */}
-      <div className="flex-1 flex flex-col gap-[24px] p-[24px] lg:p-[32px] w-full pb-[32px]">
+    <div className="flex flex-col gap-[20px] w-full pb-[32px]" dir="rtl">
         {/* 1. Bento Header & Target Owner Banner */}
         <BentoTelemetryHeader />
 
@@ -207,7 +209,6 @@ export function ImportedPropertiesView() {
 
         {/* 5. Conflict Prevention & Safe Guarding Banner */}
         <ConflictSafeguardBanner />
-      </div>
 
       {/* 6. Sticky Bottom Summary & Final Action Bar */}
       <StickyActionBar

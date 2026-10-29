@@ -8,7 +8,7 @@ import { PropertyDetailsBookingsPreview } from "./property-details-bookings-prev
 export function PropertyDetailsView() {
   return (
     <div
-      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"
+      className="flex flex-col gap-[20px] w-full"
       dir="rtl"
       data-node-id="1:3049"
       data-name="Property Details View"

@@ -45,7 +45,7 @@ export function OperationsLogView() {
 
   return (
     <div
-      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"
+      className="flex flex-col gap-[20px] w-full"
       dir="rtl"
       data-node-id="1:12570"
       data-name="سجل التشغيل"
@@ -349,3 +349,4 @@ export function OperationsLogView() {
     </div>
   );
 }
+

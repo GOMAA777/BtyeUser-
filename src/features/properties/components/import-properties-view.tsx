@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { showToast } from "@/lib/toast";
 
@@ -9,15 +8,15 @@ export function ImportPropertiesView() {
   const router = useRouter();
 
   const handleBookingStart = () => {
-    showToast.underDevelopment("الربط مع Booking.com");
+    router.push("/properties/import?step=review");
   };
 
   const handleAirbnbStart = () => {
-    showToast.underDevelopment("الربط مع Airbnb");
+    showToast.info("الربط مع Airbnb", "جاري إعداد قناة الاتصال المباشر بحساب Airbnb...");
   };
 
   const handleManualAdd = () => {
-    showToast.underDevelopment("إضافة عقار يدوياً");
+    router.push("/properties/new");
   };
 
   const handleApiManagement = () => {
@@ -25,11 +24,7 @@ export function ImportPropertiesView() {
   };
 
   const handleClose = () => {
-    if (window.history.length > 1) {
-      router.back();
-    } else {
-      router.push("/dashboard");
-    }
+    router.push("/properties");
   };
 
   return (
@@ -39,7 +34,7 @@ export function ImportPropertiesView() {
     >
       {/* Main Architectural Dialog / Workspace Frame */}
       <div
-        className="w-full max-w-[896px] bg-white rounded-[16px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] overflow-hidden border border-[#dfe4db]/50 flex flex-col"
+        className="w-full max-w-[896px] bg-white rounded-[16px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] overflow-hidden flex flex-col"
         data-node-id="1:21375"
         data-name="Main Architectural Dialog / Workspace Frame"
       >
@@ -74,13 +69,13 @@ export function ImportPropertiesView() {
             {/* Title & Subtitle */}
             <div className="flex flex-col gap-[2px] items-start" data-node-id="1:21381">
               <h1
-                className="font-cairo font-semibold text-[#181d17] text-[22px] sm:text-[24px] leading-[34px] tracking-normal m-0"
+                className="font-cairo font-semibold text-[#181d17] text-[24px] leading-[34px] tracking-normal m-0"
                 data-node-id="1:21384"
               >
                 استيراد العقارات
               </h1>
               <p
-                className="font-cairo font-normal text-[#454840] text-[13px] sm:text-[14px] leading-[22px] m-0"
+                className="font-cairo font-normal text-[#454840] text-[14px] leading-[22px] m-0"
                 data-node-id="1:21386"
               >
                 اختر منصة الحجز التي تريد الاستيراد منها لمزامنة الوحدات وبيانات الإشغال تلقائياً.
@@ -148,7 +143,7 @@ export function ImportPropertiesView() {
               </span>
 
               {/* Owner Code */}
-              <span className="font-cairo font-normal text-[11px] leading-[16px] text-[#75786f]">
+              <span className="font-cairo font-normal text-[11px] leading-[16px] text-[#c5c8bd]">
                 (#OWN-4091)
               </span>
 
@@ -173,7 +168,7 @@ export function ImportPropertiesView() {
         >
           {/* Card 1: Booking.com Card */}
           <div
-            className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] border border-[#dfe4db]/60 flex flex-1 flex-col items-start justify-between min-w-0 p-[24px] rounded-[16px]"
+            className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex flex-1 flex-col items-start justify-between min-w-0 p-[24px] rounded-[16px]"
             data-node-id="1:21453"
             data-name="Booking.com Card"
           >
@@ -206,10 +201,10 @@ export function ImportPropertiesView() {
                   className="bg-[#d8e8cb] flex gap-[6px] items-center px-[10px] py-[4px] rounded-[9999px] shrink-0"
                   data-node-id="1:21456"
                 >
+                  <span className="bg-[#3e8a5a] rounded-full size-[6px] shrink-0" />
                   <span className="font-cairo font-medium text-[11px] leading-[16px] text-[#5a6952]">
                     جاهز للمزامنة
                   </span>
-                  <span className="bg-[#3e8a5a] rounded-full size-[6px] shrink-0" />
                 </div>
               </div>
             </div>
@@ -315,7 +310,7 @@ export function ImportPropertiesView() {
 
           {/* Card 2: Airbnb Card */}
           <div
-            className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] border border-[#dfe4db]/60 flex flex-1 flex-col items-start justify-between min-w-0 p-[24px] rounded-[16px]"
+            className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex flex-1 flex-col items-start justify-between min-w-0 p-[24px] rounded-[16px]"
             data-node-id="1:21410"
             data-name="Airbnb Card"
           >
@@ -354,10 +349,10 @@ export function ImportPropertiesView() {
                   className="bg-[#d8e8cb] flex gap-[6px] items-center px-[10px] py-[4px] rounded-[9999px] shrink-0"
                   data-node-id="1:21413"
                 >
+                  <span className="bg-[#3e8a5a] rounded-full size-[6px] shrink-0" />
                   <span className="font-cairo font-medium text-[11px] leading-[16px] text-[#5a6952]">
                     اتصال مباشر جاهز
                   </span>
-                  <span className="bg-[#3e8a5a] rounded-full size-[6px] shrink-0" />
                 </div>
               </div>
             </div>
@@ -470,7 +465,7 @@ export function ImportPropertiesView() {
         >
           {/* Prerequisite Guidance Note */}
           <div
-            className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] border border-[#dfe4db]/50 flex flex-col sm:flex-row gap-[12px] items-start sm:items-center justify-between p-[16px] rounded-[12px] shrink-0 w-full"
+            className="bg-white drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex flex-col sm:flex-row gap-[12px] items-start sm:items-center justify-between p-[16px] rounded-[12px] shrink-0 w-full"
             data-node-id="1:21497"
             data-name="Prerequisite Guidance Note"
           >
@@ -553,7 +548,7 @@ export function ImportPropertiesView() {
             <button
               type="button"
               onClick={handleManualAdd}
-              className="bg-white hover:bg-[#f1f5eb] text-[#181d17] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] border border-[#dfe4db]/60 flex gap-[8px] h-[40px] items-center px-[20px] sm:px-[24px] rounded-[12px] shrink-0 font-cairo font-semibold text-[12px] leading-[18px] transition-all cursor-pointer shadow-sm"
+              className="bg-white hover:bg-[#f1f5eb] text-[#181d17] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] flex gap-[8px] h-[40px] items-center px-[20px] sm:px-[24px] rounded-[12px] shrink-0 font-cairo font-semibold text-[12px] leading-[18px] transition-all cursor-pointer"
               data-node-id="1:21509"
               data-name="Button"
             >

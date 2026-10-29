@@ -146,7 +146,7 @@ export function MaintenanceView() {
 
   return (
     <div
-      className="flex flex-col gap-[24px] w-full max-w-[1400px] mx-auto text-right font-cairo pb-[60px]"
+      className="flex flex-col gap-[20px] w-full text-right font-cairo"
       data-node-id="1:10347"
       data-name="الصيانة والتنظيف"
       dir="rtl"

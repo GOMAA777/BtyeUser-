@@ -81,7 +81,7 @@ export function PropertiesView() {
   if (properties.length === 0) {
     return (
       <div
-        className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"
+        className="flex flex-col gap-[20px] w-full"
         data-name="Properties Empty State Page Container"
       >
         <PropertiesHeroBar onAddProperty={handleAddProperty} />
@@ -93,7 +93,7 @@ export function PropertiesView() {
   // 2. Default Properties List Layout (Figma Node 1:1578)
   return (
     <div
-      className="bg-[#f1f5eb] min-h-screen p-[24px] lg:p-[32px] flex flex-col gap-[20px] w-full"
+      className="flex flex-col gap-[20px] w-full"
       data-name="Properties Page Container"
     >
       {/* 1. Hero Greeting Bar */}

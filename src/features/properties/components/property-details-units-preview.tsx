@@ -162,3 +162,4 @@ export function PropertyDetailsUnitsPreview() {
     </div>
   );
 }
+
