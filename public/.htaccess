@@ -1,0 +1,15 @@
+# Next.js static export under public_html/home
+DirectoryIndex index.html
+
+Options -MultiViews
+RewriteEngine On
+RewriteBase /home/
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+ErrorDocument 404 /home/404.html
