@@ -64,12 +64,12 @@ const mainNavItems: NavItem[] = [
   },
   {
     label: "الواتساب",
-    href: "#whatsapp",
+    href: "/whatsapp",
     icon: MessageSquare,
   },
   {
     label: "ربط المنصات",
-    href: "#integrations",
+    href: "/integrations",
     icon: ArrowLeftRight,
   },
   {
@@ -79,7 +79,7 @@ const mainNavItems: NavItem[] = [
   },
   {
     label: "اشتراكي",
-    href: "#subscription",
+    href: "/subscription",
     icon: Receipt,
   },
 ];
@@ -92,7 +92,7 @@ const settingsNavItems: NavItem[] = [
   },
   {
     label: "الإعدادات",
-    href: "#settings",
+    href: "/settings",
     icon: SlidersHorizontal,
   },
   {
@@ -163,7 +163,8 @@ export function DashboardSidebar() {
               (item.href.includes("properties") && pathname.includes("properties")) ||
               (item.href === "/units" && pathname.startsWith("/units")) ||
               (item.href === "/bookings" && pathname.startsWith("/bookings")) ||
-              (item.href === "/maintenance" && (pathname.startsWith("/maintenance") || pathname.startsWith("/operations")));
+              (item.href === "/maintenance" && (pathname.startsWith("/maintenance") || pathname.startsWith("/operations"))) ||
+              (item.href === "/subscription" && pathname.startsWith("/subscription"));
             const IconComponent = item.icon;
 
             return (
@@ -217,6 +218,7 @@ export function DashboardSidebar() {
         <nav className="flex flex-col gap-[3px] w-full">
           {settingsNavItems.map((item) => {
             const IconComponent = item.icon;
+            const isActive = item.href === "/settings" && pathname.startsWith("/settings");
             return (
               <Link
                 key={item.label}
@@ -228,12 +230,14 @@ export function DashboardSidebar() {
                     showToast.underDevelopment(item.label);
                   }
                 }}
-                className={`flex items-center text-[#E0E7DC] hover:text-white hover:bg-white/[0.05] transition-all w-full font-cairo font-semibold ${
-                  isCollapsed ? "justify-center p-[10px] rounded-[12px]" : "gap-[12px] px-[16px] py-[8px] rounded-[12px]"
-                }`}
+                className={`flex items-center transition-all w-full font-cairo font-semibold ${
+                  isActive
+                    ? "bg-[#d8e8cb] text-[#121f0d]"
+                    : "text-[#E0E7DC] hover:text-white hover:bg-white/[0.05]"
+                } ${isCollapsed ? "justify-center p-[10px] rounded-[12px]" : "gap-[12px] px-[16px] py-[8px] rounded-[12px]"}`}
               >
                 <div className="relative shrink-0 size-[20px] flex items-center justify-center">
-                  <IconComponent size={19} strokeWidth={1.8} className="text-[#C5D0C0]" />
+                  <IconComponent size={19} strokeWidth={1.8} className={isActive ? "text-[#121f0d]" : "text-[#C5D0C0]"} />
                 </div>
                 {!isCollapsed && (
                   <span className="text-[13.5px] leading-[20px] whitespace-nowrap">

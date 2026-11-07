@@ -27,12 +27,12 @@ export function OnboardingHeader() {
           className="bg-[#34422a] size-[40px] rounded-[12px] flex items-center justify-center shadow-[0px_2px_8px_-2px_rgba(38,51,32,0.12)] shrink-0"
           data-node-id="1:21063"
         >
-          <div className="relative size-[26px]" data-node-id="1:21065">
+          <div className="relative w-[18.333px] h-[16.5px]" data-node-id="1:21065">
             <Image
-              src="/assets/brand/logo.png"
+              src="/assets/onboarding/logo_building.svg"
               alt="شعار ابراج"
-              width={26}
-              height={26}
+              width={18}
+              height={17}
               className="size-full object-contain"
             />
           </div>

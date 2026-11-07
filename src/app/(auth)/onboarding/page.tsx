@@ -13,15 +13,16 @@ export const metadata: Metadata = {
 export default function OnboardingPage() {
   return (
     <main
-      className="min-h-screen w-full bg-[#f6fbf1] flex flex-col justify-between items-center px-4 sm:px-6 lg:px-8 relative selection:bg-[#34422a] selection:text-white"
+      className="min-h-screen w-full bg-[#f6fbf1] flex flex-col justify-between items-center relative selection:bg-[#34422a] selection:text-white"
       data-node-id="1:21054"
       data-name="أضف عقاراتك"
+      dir="rtl"
     >
       {/* 1. Header (Logo & Brand title) */}
       <OnboardingHeader />
 
       {/* 2. Main Content Body (Progress Indicator, Two Decision Cards, Clarification Notice) */}
-      <div className="flex flex-col items-center w-full max-w-[1024px] my-auto py-4 sm:py-6 lg:py-8">
+      <div className="flex flex-col items-center w-full max-w-[1440px] px-[16px] sm:px-[32px] py-[36px] my-auto">
         <OnboardingProgress />
         <OnboardingCards />
         <OnboardingReassurance />

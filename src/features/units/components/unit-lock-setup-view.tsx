@@ -716,7 +716,7 @@ export function UnitLockSetupView() {
 
       {/* 3. STICKY / BOTTOM MASTER ACTIONS BAR */}
       <div
-        className="fixed bottom-4 left-4 right-4 sm:left-8 sm:right-8 z-30 backdrop-blur-md bg-white/95 p-4 rounded-[16px] shadow-lg border border-neutral-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-[1280px] mx-auto"
+        className="fixed bottom-4 left-0 right-0 z-30 backdrop-blur-md bg-white/95 p-4 rounded-[16px] shadow-lg border border-neutral-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 w-[90%] mx-auto"
         data-node-id="1:22263"
         data-name="Sticky / Bottom Master Actions Bar"
       >

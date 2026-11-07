@@ -34,8 +34,7 @@ export function OnboardingCards() {
       data-node-id="1:21098"
     >
       {/* ========================================================
-          CARD 1: Automated Sync & Import (Recommended)
-          Physical RIGHT in RTL
+          CARD 1: Automated Sync & Import (Recommended) — visual RIGHT
       ======================================================== */}
       <div
         className="bg-white flex-1 min-w-[320px] rounded-[20px] shadow-[0px_4px_20px_-4px_rgba(38,51,32,0.06)] p-[24px] flex flex-col justify-between transition-all duration-200 hover:shadow-[0px_8px_30px_-4px_rgba(38,51,32,0.12)] border border-[#dfe4db]/30"
@@ -99,28 +98,33 @@ export function OnboardingCards() {
             className="bg-[#f1f5eb] rounded-[16px] p-[16px] my-[24px] flex flex-col items-center justify-center"
             data-node-id="1:21188"
           >
-            {/* Row 1: Flow between channels and Sarh platform */}
+            {/* Row 1: Figma order LTR — صرح | sync | channels */}
             <div
               className="flex items-center justify-between w-full px-[4px]"
+              dir="ltr"
               data-node-id="1:21189"
             >
-              {/* Channel Logos (Physical Right in RTL) */}
-              <div className="flex items-center gap-[4px]" data-node-id="1:21202">
-                <div
-                  className="bg-[#003580] text-white font-cairo font-bold text-[12px] tracking-[-0.3px] h-[40px] px-[12px] rounded-[12px] flex items-center justify-center drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] select-none"
-                  data-node-id="1:21206"
+              <div
+                className="bg-[#34422a] text-white h-[40px] px-[14px] rounded-[12px] flex items-center gap-[6px] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] select-none"
+                data-node-id="1:21190"
+              >
+                <span
+                  className="font-cairo font-bold text-[12px] leading-[18px] text-white"
+                  data-node-id="1:21192"
                 >
-                  Booking.com
-                </div>
-                <div
-                  className="bg-[#ff385c] text-white font-cairo font-bold text-[12px] tracking-[-0.3px] h-[40px] px-[12px] rounded-[12px] flex items-center justify-center drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] select-none"
-                  data-node-id="1:21203"
-                >
-                  airbnb
+                  صرح
+                </span>
+                <div className="relative w-[15px] h-[12px]" data-node-id="1:21193">
+                  <Image
+                    src="/assets/onboarding/icon_sarh_seal.svg"
+                    alt=""
+                    width={15}
+                    height={12}
+                    className="size-full object-contain"
+                  />
                 </div>
               </div>
 
-              {/* Kinetic Bidirectional Sync Graphic (Middle) */}
               <div
                 className="flex flex-col items-center justify-center px-[4px]"
                 data-node-id="1:21195"
@@ -147,25 +151,18 @@ export function OnboardingCards() {
                 </span>
               </div>
 
-              {/* Destination Platform Seal (Physical Left in RTL) */}
-              <div
-                className="bg-[#34422a] text-white h-[40px] px-[14px] rounded-[12px] flex items-center gap-[6px] drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] select-none"
-                data-node-id="1:21190"
-              >
-                <span
-                  className="font-cairo font-bold text-[12px] leading-[18px] text-white"
-                  data-node-id="1:21192"
+              <div className="flex items-center gap-[4px]" data-node-id="1:21202">
+                <div
+                  className="bg-[#ff385c] text-white font-cairo font-bold text-[12px] tracking-[-0.3px] h-[40px] px-[12px] rounded-[12px] flex items-center justify-center drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] select-none"
+                  data-node-id="1:21203"
                 >
-                  صرح
-                </span>
-                <div className="relative w-[15px] h-[12px]" data-node-id="1:21193">
-                  <Image
-                    src="/assets/onboarding/icon_sarh_seal.svg"
-                    alt=""
-                    width={15}
-                    height={12}
-                    className="size-full object-contain"
-                  />
+                  airbnb
+                </div>
+                <div
+                  className="bg-[#003580] text-white font-cairo font-bold text-[12px] tracking-[-0.3px] h-[40px] px-[12px] rounded-[12px] flex items-center justify-center drop-shadow-[0px_1px_1px_rgba(0,0,0,0.05)] select-none"
+                  data-node-id="1:21206"
+                >
+                  Booking.com
                 </div>
               </div>
             </div>

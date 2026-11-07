@@ -468,7 +468,7 @@ export function CreateMaintenanceView() {
         data-name="Action Confirmation Bar (Sticky on Desktop)"
         dir="rtl"
       >
-        <div className="w-full max-w-[1280px] mx-auto px-[24px] sm:px-[32px] lg:px-[56px] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="w-[90%] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-cairo text-[12px] text-[#75786f] text-center sm:text-right">
             تأكد من صحة بيانات الوحدة؛ سيتم إيقاف تسكين الوحدة فور الضغط على تأكيد وإنشاء البلاغ.
           </p>

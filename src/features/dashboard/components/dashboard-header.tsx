@@ -10,9 +10,10 @@ export function DashboardHeader() {
 
   return (
     <header
-      className="bg-white h-[72px] border-b border-[#E5EAE0] drop-shadow-[0px_1px_4px_rgba(0,0,0,0.04)] flex items-center justify-between px-[20px] lg:px-[32px] w-full shrink-0 z-20 gap-[16px]"
+      className="bg-white h-[72px] border-b border-[#E5EAE0] drop-shadow-[0px_1px_4px_rgba(0,0,0,0.04)] w-full shrink-0 z-20"
       data-name="Header"
     >
+      <div className="w-[90%] mx-auto h-full flex items-center justify-between gap-[16px]">
       {/* 1. Right Side (RTL Start): Sidebar Toggle + Property Selector Pill */}
       <div className="flex items-center gap-[12px] shrink-0">
         {/* Circular Sidebar Collapse/Expand Toggle Button */}
@@ -83,6 +84,7 @@ export function DashboardHeader() {
             />
           </div>
         </div>
+      </div>
       </div>
     </header>
   );
